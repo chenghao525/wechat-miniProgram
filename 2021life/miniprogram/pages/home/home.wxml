@@ -1,0 +1,10 @@
+<import src="../common/nav.wxml"/>
+
+<view>
+  <van-search class="home_search" placeholder="Search!"></van-search>
+</view>
+<button class="uploadButton" bindtap="uploadPic">Upload a pic!</button>
+<button class="myButton" bindtap="onPicButton">Get me a pic!</button>
+<view class="listItem">
+  <image class="image1" src="{{imagePath}}" mode="aspectFIt"></image>
+</view>

@@ -1,0 +1,19 @@
+{
+  "name": "2021life",
+  "description": "first 2021 project",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Chenghao Sun",
+  "license": "MIT",
+  "dependencies": {
+    "vant-weapp": "^0.5.19"
+  },
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

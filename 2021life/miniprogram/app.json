@@ -1,23 +1,36 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
+    "pages/home/home",
     "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib",
-    "pages/openapi/openapi",
-    "pages/openapi/serverapi/serverapi",
-    "pages/openapi/callback/callback",
-    "pages/openapi/cloudid/cloudid"
+    "pages/deployFunctions/deployFunctions"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTitleText": "2021Life",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar":{
+    "color":"#33333",
+    "selectedColor": "#d81e06",
+    "list":[
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home_s.png"
+      },
+      {
+        "pagePath": "pages/databaseGuide/databaseGuide",
+        "iconPath": "images/catagory.png",
+        "selectedIconPath": "images/catagory_s.png"
+      },
+      {
+        "pagePath": "pages/deployFunctions/deployFunctions",
+        "iconPath": "images/me.png",
+        "selectedIconPath": "images/me_s.png"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json"
 }
