@@ -2,21 +2,11 @@ const App = getApp();
 
 Page({
   data: {
-    imagePath:""
-  },
-  onPicButton: function(){  
-    let that=this;
-    wx.cloud.downloadFile({
-      fileID: "cloud://cloud2021-01.636c-cloud2021-01/banner/WechatIMG1799.jpeg",
-      success: res=>{
-        console.log(res)
-        that.setData({
-          imagePath:res.tempFilePath
-        })
-      },fail: err=>{
-        console.log(err)
-      } 
-    })
+    imagePath:"",
+    autoplay: true,
+    indicator_dots: true,
+    itemList:[],
+    imgURLs:[]
   },
   uploadPic: function(){
     let that = this;
@@ -26,7 +16,6 @@ Page({
         wx.showLoading({
           title: 'Uploading...',
         })
-
         wx.cloud.uploadFile({
           cloudPath:'tempPics/'+timestamp + '.png',
           filePath: chooseResult.tempFilePaths[0],
@@ -40,7 +29,37 @@ Page({
         })
       }
     })
+  }, 
+  onLoad: function (option) {
+    let that = this;
+    var imagePaths = [];
+    const cloud = wx.cloud;
+    cloud.callFunction({
+      name: "getCollection",
+      data:{CollectionName:"merchandise"},
+      success: res => {
+        console.log(res)
+        res.result.data.map(item => {
+          imagePaths.push(item.image);
+        })
+        that.setData({
+          imgURLs: imagePaths,
+        })
+      }, fail: err => {
+        console.log(err)
+      }
+    })
+    cloud.callFunction({
+      name: "getHomeItems",
+      data: { CollectionName: "homeItem" },
+      success: res=>{
+        console.log(res);
+        that.setData({
+          itemList:res.result.data
+      })
+      },fail: err => {
+        console.log(err)
+      }
+    })
   }
-
-
 })

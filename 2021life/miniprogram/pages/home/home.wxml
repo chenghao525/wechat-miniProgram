@@ -1,10 +1,34 @@
 <import src="../common/nav.wxml"/>
 
+<!-- 首页搜索和Banner -->
 <view>
-  <van-search class="home_search" placeholder="Search!"></van-search>
+  <van-search class="home-search" placeholder="Search"></van-search>
+  <view class="swiper-container">
+  <swiper class="top-banner" autoplay="{{autoplay}}" indicator-dots="indicator_dots" >
+  <block wx:for="{{imgURLs}}">
+    <swiper-item>
+      <image src="{{item}}" class="banner-image"/>
+    </swiper-item>
+  </block>
+  </swiper>
+  </view>
 </view>
+
+<!-- 首页商品版块 -->
+<view class="section goods-list">
+	<block wx:for="{{itemList}}" wx:key="index" wx:for-item="product">
+		<view class="goods-item">
+			<image class="goods-img {{product.is_new?'new':''}} {{product.on_sale?'on-sale':''}}" src="{{product.img}}" data-pid="{{product.id}}" mode="aspectFill" bindtap="showDetail"/>
+			<text class="title">{{product.name}}</text>
+			<text class="desp">{{product.description}}</text>
+			<text class="price">{{product.price}}</text>
+		</view>
+	</block>
+</view>
+
+
+
 <button class="uploadButton" bindtap="uploadPic">Upload a pic!</button>
-<button class="myButton" bindtap="onPicButton">Get me a pic!</button>
 <view class="listItem">
   <image class="image1" src="{{imagePath}}" mode="aspectFIt"></image>
 </view>
