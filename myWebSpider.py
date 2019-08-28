@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 headers="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36";
-
+#try if github contribution work coorectly
 def getHomePageText(url):
 	try:
 		r = requests.get(url, timeout=300);
