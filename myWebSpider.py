@@ -13,22 +13,24 @@ productDict = {
 	"price":"",
 	"onSale":False,
 	"soldOut":False,
-	"detailText":"",
+	"detailText":{},
 	"detailImgs":[]
 }
 
 def getPageText(url):
 	try:
+		print("Requesting: %s..."%(url));
 		r = requests.get(url, timeout=300);
 		r.raise_for_status();
 		r.encoding = r.apparent_encoding;
+		print("Done");
 		return r.text;
 	except:
 		return "Err Occur";
 
 
 def getAllCategory(pageText):
-	#print(pageText);
+	print("Getting Product categories...");
 	categoryDict = {};
 	soup = BeautifulSoup(pageText,'lxml');
 	category = soup.findAll(class_ = 'nav-item-products');
@@ -49,11 +51,69 @@ def downloadProductsImage(key,productImgArray):
 	os.makedirs('./images/%s/'%key, exist_ok=True);
 	for pi in productImgArray:
 		r = requests.get(pi);
-		with open('./images/%s/%s%d.png'%(key,key,imgNum), 'wb') as f:
+		with open('./images/%s/%s%d.jpg'%(key,key,imgNum), 'wb') as f:
 			f.write(r.content);
-		finalProductImgArray.append('%s%d.png'%(key,imgNum));
+		finalProductImgArray.append('%s%d.jpg'%(key,imgNum));
 		imgNum+=1; 
+		print("Downloading image: %s%d.jpg"%(key,imgNum));
 	return finalProductImgArray;
+
+def getSingleProductDetailImgs(key,href):
+	print("Requesting %s product detail images:"%(key));
+	singleProductDetailImgs = [];
+	detailPageText = getPageText(href);
+	soup = BeautifulSoup(detailPageText,'lxml');
+	thumbImgs = soup.findAll(class_ = 'thumb-image');
+	detailImgs = soup.findAll(class_ = 'ProductItem-gallery-thumbnails-item-image');
+	for di in detailImgs:
+		singleProductDetailImgs.append(di.get('data-src'));
+	for ti in thumbImgs:
+		singleProductDetailImgs.append(ti.get('data-src'));
+
+	finalProductDetailImgArray = downloadProductsImage(key, singleProductDetailImgs);
+	return finalProductDetailImgArray;
+
+def getSingleProductDetailText(key,href):
+	print("Requesting %s product detail text..."%(key));
+	productTextDict = {
+		"variantOptionTitle":"",
+		"variantOptions":[],
+		"detailText":[]
+	};
+	detailPageText = getPageText(href);
+	soup = BeautifulSoup(detailPageText,'lxml');
+	detailTextDiv = soup.find('div',{'class':'ProductItem-details-excerpt'});
+	newSoup = BeautifulSoup(str(detailTextDiv),'lxml');
+	for p in newSoup.findAll('p'):
+		detailText = p.get_text();
+		detailText = detailText.replace(u'\xa0', u' ')
+		productTextDict["detailText"].append(detailText);
+
+	variantOptionTitle = soup.find('div',{'class':'variant-option-title'});
+	variantOptions = soup.findAll('option');
+	if not variantOptionTitle is None :
+		productTextDict["variantOptionTitle"] = variantOptionTitle.get_text();
+		for vo in variantOptions:
+			productTextDict["variantOptions"].append(vo.get_text());
+
+	return productTextDict;
+	
+
+def getProductsDetails(key, pageText):
+	productDetailPageArray = [];
+	productDetailImgArray = [];
+	productDetailTextArray = [];
+	soup = BeautifulSoup(pageText,'lxml');
+	products = soup.findAll(class_ = 'ProductList-item-link');
+	for p in products:
+		link = p.get('href')
+		link = 'https://www.2021life.com' + link;
+		productDetailPageArray.append(link);
+	for href in productDetailPageArray:
+		productDetailImgArray.append(getSingleProductDetailImgs(key,href));
+		productDetailTextArray.append(getSingleProductDetailText(key,href));
+	return productDetailTextArray,productDetailImgArray;
+
 
 def getProductInfo(key, pageText):
 	productDict["category"] = key;
@@ -92,9 +152,9 @@ def getProductInfo(key, pageText):
 			productSoldArray.append(False);
 
 	finalProductImgArray = downloadProductsImage(key,productImgArray);
-	print("Products_title:",productSaleArray);
 	
-	##TODO: details arrays
+	productDetailTextArray,productDetailImgsArray=getProductsDetails(key,pageText);
+
 	for i in range(0,len(products)):
 		productDict["ID"]+=1;
 		productDict["name"]=productTitleArray[i];
@@ -102,7 +162,9 @@ def getProductInfo(key, pageText):
 		productDict["price"]=productPriceArray[i];
 		productDict["onSale"]=productSaleArray[i];
 		productDict["soldOut"]=productSoldArray[i];
-
+		productDict["detailText"]=productDetailTextArray[i];
+		productDict["detailImgs"]=productDetailImgsArray[i];
+		print("Wring %s product No.%d"%(key,productDict["ID"]));
 		writeJson(key);
 		
 
