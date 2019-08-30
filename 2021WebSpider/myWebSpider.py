@@ -2,6 +2,7 @@ import requests
 import json
 import os
 import threading
+import re
 from bs4 import BeautifulSoup
 
 headers="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36";
@@ -51,9 +52,6 @@ def downloadProductsImage(key,productImgArray,imgNum):
 	key = key.replace(u' ', u'_');
 	os.makedirs('./images/', exist_ok=True);
 	os.makedirs('./images/%s/'%key, exist_ok=True);
-
-
-
 
 	for pi in productImgArray:
 		print("Downloading image: %s%d.jpg"%(key,imgNum));
@@ -132,15 +130,35 @@ def getProductsDetails(key, pageText, productDetailPageArray,imgNum):
 	productDetailImgArray = [];
 	productDetailTextArray = [];
 	newImgNum = imgNum;
-	# soup = BeautifulSoup(pageText,'lxml');
 	
 	for href in productDetailPageArray:
+		
+		hrefArray = href.split('/');
+		imgName = hrefArray[-1];
+		# print("!!!!",imgName);
 		newImgNum,finalProductDetailImgArray = getSingleProductDetailImgs(key,href,newImgNum);
 		productDetailImgArray.append(finalProductDetailImgArray);
 		productDetailTextArray.append(getSingleProductDetailText(key,href));
 	return productDetailTextArray,productDetailImgArray;
 
 
+def makeDict(productImgHref, productName):
+	outDict = {};
+	finalNameArray = [];
+	for name in productName:
+		nameArray = name.split(" ");
+		if not nameArray[0]=='':
+			finalNameArray.append(nameArray[0]);
+		else:
+			finalNameArray.append(nameArray[1]);
+	for i in range(len(productImgHref)):
+		name = finalNameArray[i];
+		# newName = name.replace("[!@#$%^&*']", "");
+		# re.sub('[^A-Za-z0-9]+', '', name)
+		''.join(e for e in name if e.isalnum())
+		href = productImgHref[i];
+		outDict.update({href:name});
+	return outDict;
 
 def getProductInfo(key, pageText, imgNum):
 	productDict["category"] = key;
@@ -184,6 +202,11 @@ def getProductInfo(key, pageText, imgNum):
 		link = p.get('href')
 		link = 'https://www.2021life.com' + link;
 		productDetailPageArray.append(link);
+	for href in productDetailPageArray:
+		hrefArray = href.split('/');
+		imgName = hrefArray[-1];
+	homeImageHrefNameDict = makeDict(productImgArray, productTitleArray);
+	print("!!!",homeImageHrefNameDict);
 	newImgNum, finalProductImgArray = downloadProductsImage(key,productImgArray,imgNum);
 	productDetailTextArray,productDetailImgsArray = getProductsDetails(key,pageText,productDetailPageArray, newImgNum);
 
