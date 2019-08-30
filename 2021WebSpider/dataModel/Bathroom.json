@@ -1,0 +1,973 @@
+{
+    "ID": 1,
+    "name": "Minimalism toothbrush holder with cup- magnetic",
+    "img": "Bathroom0.jpg",
+    "category": "Bathroom",
+    "price": "35.80",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "",
+        "variantOptions": [],
+        "detailText": [
+            "~~~"
+        ]
+    },
+    "detailImgs": [
+        "Bathroom35.jpg",
+        "Bathroom36.jpg",
+        "Bathroom37.jpg",
+        "Bathroom38.jpg"
+    ]
+}{
+    "ID": 2,
+    "name": "Modern Toothbrush holder ",
+    "img": "Bathroom1.jpg",
+    "category": "Bathroom",
+    "price": "7.99",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "color: ",
+        "variantOptions": [
+            "Select color",
+            "White",
+            "Black"
+        ],
+        "detailText": [
+            "",
+            "Material: Plastic ",
+            "Size\uff1a3.2 * 3.2 * 5.16 in",
+            "Weight\uff1a58.7g"
+        ]
+    },
+    "detailImgs": [
+        "Bathroom39.jpg",
+        "Bathroom40.jpg",
+        "Bathroom41.jpg",
+        "Bathroom42.jpg",
+        "Bathroom43.jpg",
+        "Bathroom44.jpg"
+    ]
+}{
+    "ID": 3,
+    "name": "STAINLESS SPONGE BOTTLE WASHER",
+    "img": "Bathroom2.jpg",
+    "category": "Bathroom",
+    "price": "3.99",
+    "onSale": false,
+    "soldOut": true,
+    "detailText": {
+        "variantOptionTitle": "",
+        "variantOptions": [],
+        "detailText": [
+            "",
+            " 4 extra sponge included",
+            "Material: PP + sponge"
+        ]
+    },
+    "detailImgs": [
+        "Bathroom45.jpg",
+        "Bathroom46.jpg",
+        "Bathroom47.jpg",
+        "Bathroom48.jpg",
+        "Bathroom49.jpg",
+        "Bathroom50.jpg",
+        "Bathroom51.jpg"
+    ]
+}{
+    "ID": 4,
+    "name": "Intimates laundry bag ",
+    "img": "Bathroom3.jpg",
+    "category": "Bathroom",
+    "price": "3.99",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "",
+        "variantOptions": [],
+        "detailText": [
+            "",
+            "Material: Polyester fibre",
+            "Weight: 78g ",
+            "Size: Diameter 15 cm Height-15 cm",
+            ""
+        ]
+    },
+    "detailImgs": [
+        "Bathroom52.jpg",
+        "Bathroom53.jpg",
+        "Bathroom54.jpg",
+        "Bathroom55.jpg",
+        "Bathroom56.jpg"
+    ]
+}{
+    "ID": 5,
+    "name": "Travel Toothbrush Cup",
+    "img": "Bathroom4.jpg",
+    "category": "Bathroom",
+    "price": "19.80",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "Style: ",
+        "variantOptions": [
+            "Select Style",
+            "Luck Begins",
+            "Easy Grow",
+            "Enjoy Lifes"
+        ],
+        "detailText": [
+            "~~~"
+        ]
+    },
+    "detailImgs": [
+        "Bathroom57.jpg",
+        "Bathroom58.jpg",
+        "Bathroom59.jpg",
+        "Bathroom60.jpg",
+        "Bathroom61.jpg"
+    ]
+}{
+    "ID": 6,
+    "name": "Automatic toothpaste dispenser and toothbrush holder single sets",
+    "img": "Bathroom5.jpg",
+    "category": "Bathroom",
+    "price": "8.80",
+    "onSale": true,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "color: ",
+        "variantOptions": [
+            "Select color",
+            "White",
+            "Grey"
+        ],
+        "detailText": [
+            "Color: White and Grey"
+        ]
+    },
+    "detailImgs": [
+        "Bathroom62.jpg",
+        "Bathroom63.jpg",
+        "Bathroom64.jpg",
+        "Bathroom65.jpg",
+        "Bathroom66.jpg",
+        "Bathroom67.jpg",
+        "Bathroom68.jpg"
+    ]
+}{
+    "ID": 7,
+    "name": "Japanese style toothbrush holder ",
+    "img": "Bathroom6.jpg",
+    "category": "Bathroom",
+    "price": "5.99",
+    "onSale": true,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "COLOR: ",
+        "variantOptions": [
+            "Select COLOR",
+            "Khaki",
+            "Light Green",
+            "Gloomy Blue ",
+            "White"
+        ],
+        "detailText": [
+            "",
+            "Material: PP and PBT",
+            "Toothbrush included ",
+            "Size Toothbrush 7.32 * 0.6 *0.67 in",
+            "Size\uff1aHeight 4.13 x Diameter 2.95 in"
+        ]
+    },
+    "detailImgs": [
+        "Bathroom69.jpg",
+        "Bathroom70.jpg",
+        "Bathroom71.jpg",
+        "Bathroom72.jpg"
+    ]
+}{
+    "ID": 8,
+    "name": "Marble Shower Curtain ",
+    "img": "Bathroom7.jpg",
+    "category": "Bathroom",
+    "price": "37.99",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "",
+        "variantOptions": [],
+        "detailText": [
+            "",
+            "Material: Polyester fibre",
+            "Size\uff1a59 * 78 in / 1.8M * 2.0M"
+        ]
+    },
+    "detailImgs": [
+        "Bathroom73.jpg",
+        "Bathroom74.jpg",
+        "Bathroom75.jpg",
+        "Bathroom76.jpg",
+        "Bathroom77.jpg",
+        "Bathroom78.jpg",
+        "Bathroom79.jpg",
+        "Bathroom80.jpg",
+        "Bathroom81.jpg",
+        "Bathroom82.jpg"
+    ]
+}{
+    "ID": 9,
+    "name": "Outdoor waterproof organizer",
+    "img": "Bathroom8.jpg",
+    "category": "Bathroom",
+    "price": "12.99",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "",
+        "variantOptions": [],
+        "detailText": [
+            "",
+            "Size\uff1a9 * 5.9 in",
+            "Weight\uff1a57g"
+        ]
+    },
+    "detailImgs": [
+        "Bathroom83.jpg",
+        "Bathroom84.jpg",
+        "Bathroom85.jpg",
+        "Bathroom86.jpg",
+        "Bathroom87.jpg"
+    ]
+}{
+    "ID": 10,
+    "name": "Double layer soapbox ",
+    "img": "Bathroom9.jpg",
+    "category": "Bathroom",
+    "price": "7.99",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "",
+        "variantOptions": [],
+        "detailText": [
+            "",
+            "Size\uff1a13 * 8.4 * 2 cm",
+            "Weight\uff1a74g"
+        ]
+    },
+    "detailImgs": [
+        "Bathroom88.jpg",
+        "Bathroom89.jpg",
+        "Bathroom90.jpg",
+        "Bathroom91.jpg",
+        "Bathroom92.jpg"
+    ]
+}{
+    "ID": 11,
+    "name": "Bathroom Sewer Stain/Hair Preventer",
+    "img": "Bathroom10.jpg",
+    "category": "Bathroom",
+    "price": "3.99",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "color: ",
+        "variantOptions": [
+            "Select color",
+            "Gray",
+            "White"
+        ],
+        "detailText": [
+            "",
+            "Size\uff1a5.5 * 5.5 in (14 * 14 cm)"
+        ]
+    },
+    "detailImgs": [
+        "Bathroom93.jpg",
+        "Bathroom94.jpg",
+        "Bathroom95.jpg",
+        "Bathroom96.jpg"
+    ]
+}{
+    "ID": 12,
+    "name": "Minimalism shower curtain 1.8 X 2.0 M",
+    "img": "Bathroom11.jpg",
+    "category": "Bathroom",
+    "price": "37.99",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "",
+        "variantOptions": [],
+        "detailText": [
+            "",
+            "Material: Polyester fibre"
+        ]
+    },
+    "detailImgs": [
+        "Bathroom97.jpg",
+        "Bathroom98.jpg",
+        "Bathroom99.jpg"
+    ]
+}{
+    "ID": 13,
+    "name": "Polyester shower curtain with marbling",
+    "img": "Bathroom12.jpg",
+    "category": "Bathroom",
+    "price": "35.99",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "Color: ",
+        "variantOptions": [
+            "Select Color",
+            "Black",
+            "White",
+            "Select Size",
+            "1.8X2.0 M",
+            "1.5X1.8 M"
+        ],
+        "detailText": [
+            "~~~"
+        ]
+    },
+    "detailImgs": [
+        "Bathroom100.jpg",
+        "Bathroom101.jpg",
+        "Bathroom102.jpg",
+        "Bathroom103.jpg",
+        "Bathroom104.jpg",
+        "Bathroom105.jpg",
+        "Bathroom106.jpg",
+        "Bathroom107.jpg"
+    ]
+}{
+    "ID": 14,
+    "name": "10 pieces disposable Toilet mat",
+    "img": "Bathroom13.jpg",
+    "category": "Bathroom",
+    "price": "7.99",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "",
+        "variantOptions": [],
+        "detailText": [
+            "",
+            "Size\uff1a15 * 16 in",
+            "Weight\uff1a6g/piece",
+            "Material\uff1aPE membrane and Wood pulp paper "
+        ]
+    },
+    "detailImgs": [
+        "Bathroom108.jpg",
+        "Bathroom109.jpg",
+        "Bathroom110.jpg",
+        "Bathroom111.jpg",
+        "Bathroom112.jpg",
+        "Bathroom113.jpg",
+        "Bathroom114.jpg",
+        "Bathroom115.jpg",
+        "Bathroom116.jpg",
+        "Bathroom117.jpg",
+        "Bathroom118.jpg"
+    ]
+}{
+    "ID": 15,
+    "name": "Thank You So Much, My Love Face&Bath Towel",
+    "img": "Bathroom14.jpg",
+    "category": "Bathroom",
+    "price": "15.99",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "Color: ",
+        "variantOptions": [
+            "Select Color",
+            "Pink",
+            "Gray",
+            "Select Style",
+            "Face Towel",
+            "Bath Towel"
+        ],
+        "detailText": [
+            "None"
+        ]
+    },
+    "detailImgs": [
+        "Bathroom119.jpg",
+        "Bathroom120.jpg",
+        "Bathroom121.jpg",
+        "Bathroom122.jpg",
+        "Bathroom123.jpg",
+        "Bathroom124.jpg",
+        "Bathroom125.jpg",
+        "Bathroom126.jpg"
+    ]
+}{
+    "ID": 16,
+    "name": "Soapbox ",
+    "img": "Bathroom15.jpg",
+    "category": "Bathroom",
+    "price": "6.59",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "Color: ",
+        "variantOptions": [
+            "Select Color",
+            "White",
+            "Light Green",
+            "Gloomy Blue",
+            "Khaki"
+        ],
+        "detailText": [
+            "",
+            "Material\uff1aPP 4.25 * 3.07 * 1.02",
+            "Size\uff1a4.25 * 3.07 * 1.02  in",
+            "Color\uff1aKhaki, White, Light green, Gloomy blue "
+        ]
+    },
+    "detailImgs": [
+        "Bathroom127.jpg",
+        "Bathroom128.jpg",
+        "Bathroom129.jpg",
+        "Bathroom130.jpg"
+    ]
+}{
+    "ID": 17,
+    "name": "Diatom mud floor rug- Marble",
+    "img": "Bathroom16.jpg",
+    "category": "Bathroom",
+    "price": "32.99",
+    "onSale": true,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "style: ",
+        "variantOptions": [
+            "Select style",
+            "Cute Plants",
+            "Marble/Welcome",
+            "Unicorn",
+            "Little House",
+            "Cloud"
+        ],
+        "detailText": [
+            "",
+            "Size: 23.6 * 15.4 in "
+        ]
+    },
+    "detailImgs": [
+        "Bathroom131.jpg",
+        "Bathroom132.jpg",
+        "Bathroom133.jpg",
+        "Bathroom134.jpg",
+        "Bathroom135.jpg",
+        "Bathroom136.jpg",
+        "Bathroom137.jpg",
+        "Bathroom138.jpg",
+        "Bathroom139.jpg",
+        "Bathroom140.jpg"
+    ]
+}{
+    "ID": 18,
+    "name": "Flannel bath rug ",
+    "img": "Bathroom17.jpg",
+    "category": "Bathroom",
+    "price": "25.99",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "",
+        "variantOptions": [],
+        "detailText": [
+            "",
+            "Pattern: Cactus",
+            "Size\uff1a15.7 * 23.6 in"
+        ]
+    },
+    "detailImgs": [
+        "Bathroom141.jpg",
+        "Bathroom142.jpg",
+        "Bathroom143.jpg",
+        "Bathroom144.jpg"
+    ]
+}{
+    "ID": 19,
+    "name": "Extra Soft Flannel Slip resistant bath rug",
+    "img": "Bathroom18.jpg",
+    "category": "Bathroom",
+    "price": "21.99",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "",
+        "variantOptions": [],
+        "detailText": [
+            "",
+            "Pattern: palm leaf",
+            "Size\uff1a15.7 * 23.6 in"
+        ]
+    },
+    "detailImgs": [
+        "Bathroom145.jpg",
+        "Bathroom146.jpg",
+        "Bathroom147.jpg",
+        "Bathroom148.jpg"
+    ]
+}{
+    "ID": 20,
+    "name": "Forestry Flannel bath rug ",
+    "img": "Bathroom19.jpg",
+    "category": "Bathroom",
+    "price": "25.99",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "",
+        "variantOptions": [],
+        "detailText": [
+            "",
+            "Pattern: forestry ",
+            "Size\uff1a15.7 * 23.6 in"
+        ]
+    },
+    "detailImgs": [
+        "Bathroom149.jpg",
+        "Bathroom150.jpg",
+        "Bathroom151.jpg",
+        "Bathroom152.jpg"
+    ]
+}{
+    "ID": 21,
+    "name": "Diatom mud floor rug- Balloon Bear/Forest Graffiti",
+    "img": "Bathroom20.jpg",
+    "category": "Bathroom",
+    "price": "29.99",
+    "onSale": false,
+    "soldOut": true,
+    "detailText": {
+        "variantOptionTitle": "style: ",
+        "variantOptions": [
+            "Select style",
+            "Balloon",
+            "Forest Graffiti"
+        ],
+        "detailText": [
+            "",
+            "Pattern: Balloon Bear/ Forest Graffiti",
+            "Size: 23.6 * 15.4 in "
+        ]
+    },
+    "detailImgs": [
+        "Bathroom153.jpg",
+        "Bathroom154.jpg"
+    ]
+}{
+    "ID": 22,
+    "name": "Bathroom anti skid slippers",
+    "img": "Bathroom21.jpg",
+    "category": "Bathroom",
+    "price": "8.00",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "color: ",
+        "variantOptions": [
+            "Select color",
+            "Sky Blue",
+            "Light Grey",
+            "Mocha Green",
+            "Light Purple",
+            "Baby Pink",
+            "Select size",
+            "6.5/7.5",
+            "9/10"
+        ],
+        "detailText": [
+            "",
+            "Material: PVC",
+            "Shoe Sole: 1.38 in",
+            "Light Grey: 9/10 (size) men",
+            "Sky Blue/Mocha Green/Light Purple/Baby Pink: 6.5/7.5 (size) women"
+        ]
+    },
+    "detailImgs": [
+        "Bathroom155.jpg",
+        "Bathroom156.jpg",
+        "Bathroom157.jpg",
+        "Bathroom158.jpg",
+        "Bathroom159.jpg"
+    ]
+}{
+    "ID": 23,
+    "name": "Ultra soft bathroom slippers",
+    "img": "Bathroom22.jpg",
+    "category": "Bathroom",
+    "price": "10.00",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "color: ",
+        "variantOptions": [
+            "Select color",
+            "Navy",
+            "Pink",
+            "Blue",
+            "Select size",
+            "9/10",
+            "6.5/7.5"
+        ],
+        "detailText": [
+            "",
+            "Material: PVC",
+            "Shoe Sole: 1.38 in"
+        ]
+    },
+    "detailImgs": [
+        "Bathroom160.jpg",
+        "Bathroom161.jpg",
+        "Bathroom162.jpg",
+        "Bathroom163.jpg",
+        "Bathroom164.jpg"
+    ]
+}{
+    "ID": 24,
+    "name": "Embroidery cotton towel sets",
+    "img": "Bathroom23.jpg",
+    "category": "Bathroom",
+    "price": "15.99",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "style: ",
+        "variantOptions": [
+            "Select style",
+            "E=MC^2",
+            "Cactus",
+            "Crown",
+            "Heart",
+            "Select size",
+            "Face Towel",
+            "Bath Towel"
+        ],
+        "detailText": [
+            "",
+            "Material: 100% Cotton",
+            "Face Towel\uff1a13.8 * 29.5 in",
+            "Bath Towel\uff1a27.6 * 55.1 in"
+        ]
+    },
+    "detailImgs": [
+        "Bathroom165.jpg",
+        "Bathroom166.jpg",
+        "Bathroom167.jpg",
+        "Bathroom168.jpg",
+        "Bathroom169.jpg",
+        "Bathroom170.jpg",
+        "Bathroom171.jpg",
+        "Bathroom172.jpg",
+        "Bathroom173.jpg",
+        "Bathroom174.jpg"
+    ]
+}{
+    "ID": 25,
+    "name": "Chinese Lettering Embroidery Cotton Towel Sets ",
+    "img": "Bathroom24.jpg",
+    "category": "Bathroom",
+    "price": "15.99",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "STYLE: ",
+        "variantOptions": [
+            "Select STYLE",
+            "\u836f (medicine) ",
+            "\u55e8 (hype)",
+            "\u6d6a (playful) ",
+            "\u7cd6(candy)",
+            "Select size",
+            "face towel",
+            "bath towel"
+        ],
+        "detailText": [
+            "",
+            "Material: 100 % Cotton ",
+            "Size: Face Towel\uff1a13.8 * 29.5 in",
+            "Size:Bath Towel\uff1a27.6 * 55.1 in"
+        ]
+    },
+    "detailImgs": [
+        "Bathroom175.jpg",
+        "Bathroom176.jpg",
+        "Bathroom177.jpg",
+        "Bathroom178.jpg",
+        "Bathroom179.jpg",
+        "Bathroom180.jpg",
+        "Bathroom181.jpg",
+        "Bathroom182.jpg",
+        "Bathroom183.jpg",
+        "Bathroom184.jpg",
+        "Bathroom185.jpg",
+        "Bathroom186.jpg",
+        "Bathroom187.jpg",
+        "Bathroom188.jpg"
+    ]
+}{
+    "ID": 26,
+    "name": "All-in-one automatic toothpaste dispenser and toothbrush holder sets",
+    "img": "Bathroom25.jpg",
+    "category": "Bathroom",
+    "price": "27.99",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "color: ",
+        "variantOptions": [
+            "Select color",
+            "apricot",
+            "cream white "
+        ],
+        "detailText": [
+            " Dust-proof, toothpaste squeezer, magnetic holding pad.",
+            "materials: PP + ABS",
+            "Size: 8.07 x 5.5 x 2.4 (in) 20.5 * 14 * 6 cm"
+        ]
+    },
+    "detailImgs": [
+        "Bathroom189.jpg",
+        "Bathroom190.jpg",
+        "Bathroom191.jpg",
+        "Bathroom192.jpg",
+        "Bathroom193.jpg"
+    ]
+}{
+    "ID": 27,
+    "name": "Smart-hand toilet lid lifter",
+    "img": "Bathroom26.jpg",
+    "category": "Bathroom",
+    "price": "2.59",
+    "onSale": false,
+    "soldOut": true,
+    "detailText": {
+        "variantOptionTitle": "",
+        "variantOptions": [],
+        "detailText": [
+            "",
+            "Clean way to lift toilet seats",
+            "Place the lifter on the bottom of the toilet seat, and lift by the handle. "
+        ]
+    },
+    "detailImgs": [
+        "Bathroom194.jpg",
+        "Bathroom195.jpg",
+        "Bathroom196.jpg",
+        "Bathroom197.jpg",
+        "Bathroom198.jpg",
+        "Bathroom199.jpg",
+        "Bathroom200.jpg"
+    ]
+}{
+    "ID": 28,
+    "name": "Snazzy mildew & water-proof shower curtain ",
+    "img": "Bathroom27.jpg",
+    "category": "Bathroom",
+    "price": "39.99",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "Style: ",
+        "variantOptions": [
+            "Select Style",
+            "White",
+            "Black"
+        ],
+        "detailText": [
+            "",
+            "Material:Polyester fibre",
+            "Size: 70.9 * 78.74 in \uff081.8M x 2M\uff09  "
+        ]
+    },
+    "detailImgs": [
+        "Bathroom201.jpg",
+        "Bathroom202.jpg",
+        "Bathroom203.jpg"
+    ]
+}{
+    "ID": 29,
+    "name": "Rectangular toiletrier pump bottles ",
+    "img": "Bathroom28.jpg",
+    "category": "Bathroom",
+    "price": "7.99",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "style: ",
+        "variantOptions": [
+            "Select style",
+            "Tall rectangular",
+            "Short rectangular",
+            "Square rectangular",
+            "Select color",
+            "Grass Green",
+            "Clear Lucite",
+            "Cloud White "
+        ],
+        "detailText": [
+            "",
+            "Size:",
+            "Short rectangular (150ml):  14.4 x 5 x 3.7 (cm) ",
+            "Square rectangular (250ml): 12.6 x 6.7 x 6.7 (cm) ",
+            "Tall rectangular (450ml): 18.6 x 6.7 x 6.7 (cm)",
+            ""
+        ]
+    },
+    "detailImgs": [
+        "Bathroom204.jpg",
+        "Bathroom205.jpg",
+        "Bathroom206.jpg",
+        "Bathroom207.jpg",
+        "Bathroom208.jpg"
+    ]
+}{
+    "ID": 30,
+    "name": "Bunny-bunny Hairband ",
+    "img": "Bathroom29.jpg",
+    "category": "Bathroom",
+    "price": "12.99",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "color: ",
+        "variantOptions": [
+            "Select color",
+            "Chic Black",
+            "Modern White"
+        ],
+        "detailText": [
+            "",
+            "Materials: Flannel with iron wire in it. ",
+            "Length: 80-85 (cm)",
+            "Instruction: Pull the ears on both side of the products, rotate the ears to fasten hairbands. ",
+            ""
+        ]
+    },
+    "detailImgs": [
+        "Bathroom209.jpg",
+        "Bathroom210.jpg",
+        "Bathroom211.jpg"
+    ]
+}{
+    "ID": 31,
+    "name": "Essential Bathing Set",
+    "img": "Bathroom30.jpg",
+    "category": "Bathroom",
+    "price": "32.99",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "",
+        "variantOptions": [],
+        "detailText": [
+            "None"
+        ]
+    },
+    "detailImgs": [
+        "Bathroom212.jpg",
+        "Bathroom213.jpg",
+        "Bathroom214.jpg"
+    ]
+}{
+    "ID": 32,
+    "name": "Ultra soft bath rug",
+    "img": "Bathroom31.jpg",
+    "category": "Bathroom",
+    "price": "15.99",
+    "onSale": false,
+    "soldOut": true,
+    "detailText": {
+        "variantOptionTitle": "",
+        "variantOptions": [],
+        "detailText": [
+            "",
+            "Size\uff1a15.7 * 23.6 in",
+            "Materials\uff1amicrofiber, memory foam",
+            "Feature: premium water absorption ",
+            "Colors: Cream White, Khaki, Dark Grey"
+        ]
+    },
+    "detailImgs": [
+        "Bathroom215.jpg",
+        "Bathroom216.jpg"
+    ]
+}{
+    "ID": 33,
+    "name": "Diatom mud floor rug- Vibrant Color",
+    "img": "Bathroom32.jpg",
+    "category": "Bathroom",
+    "price": "21.99",
+    "onSale": false,
+    "soldOut": true,
+    "detailText": {
+        "variantOptionTitle": "",
+        "variantOptions": [],
+        "detailText": [
+            "",
+            "Pattern: Vibrant Color",
+            "Size\uff1a17.7 x 13.8 in"
+        ]
+    },
+    "detailImgs": [
+        "Bathroom217.jpg",
+        "Bathroom218.jpg",
+        "Bathroom219.jpg"
+    ]
+}{
+    "ID": 34,
+    "name": "Dirty-go Toilet Bowl Brush ",
+    "img": "Bathroom33.jpg",
+    "category": "Bathroom",
+    "price": "17.99",
+    "onSale": false,
+    "soldOut": true,
+    "detailText": {
+        "variantOptionTitle": "",
+        "variantOptions": [],
+        "detailText": [
+            "",
+            "Materials: ABS + Nylon brush",
+            "Size: width 3.9 in  length: 15.4 in "
+        ]
+    },
+    "detailImgs": [
+        "Bathroom220.jpg",
+        "Bathroom221.jpg",
+        "Bathroom222.jpg",
+        "Bathroom223.jpg",
+        "Bathroom224.jpg"
+    ]
+}{
+    "ID": 35,
+    "name": "Nordic modern shower curtain ",
+    "img": "Bathroom34.jpg",
+    "category": "Bathroom",
+    "price": "29.99",
+    "onSale": false,
+    "soldOut": true,
+    "detailText": {
+        "variantOptionTitle": "",
+        "variantOptions": [],
+        "detailText": [
+            "",
+            "Material: Polyester fibre",
+            "Size: 70.9 * 78.74 in \uff08180 * 200 cm)"
+        ]
+    },
+    "detailImgs": [
+        "Bathroom225.jpg",
+        "Bathroom226.jpg",
+        "Bathroom227.jpg"
+    ]
+}

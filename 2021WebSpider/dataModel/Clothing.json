@@ -1,0 +1,490 @@
+{
+    "ID": 1,
+    "name": "100% Cotton socks",
+    "img": "Clothing0.jpg",
+    "category": "Clothing",
+    "price": "1.69",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "Color: ",
+        "variantOptions": [
+            "Select Color",
+            "Green",
+            "Creamy white",
+            "Black",
+            "Blue",
+            "Light Grey",
+            "Dark Grey",
+            "White"
+        ],
+        "detailText": [
+            "None"
+        ]
+    },
+    "detailImgs": [
+        "Clothing17.jpg",
+        "Clothing18.jpg",
+        "Clothing19.jpg",
+        "Clothing20.jpg",
+        "Clothing21.jpg",
+        "Clothing22.jpg",
+        "Clothing23.jpg",
+        "Clothing24.jpg",
+        "Clothing25.jpg",
+        "Clothing26.jpg",
+        "Clothing27.jpg",
+        "Clothing28.jpg",
+        "Clothing29.jpg",
+        "Clothing30.jpg",
+        "Clothing31.jpg"
+    ]
+}{
+    "ID": 2,
+    "name": "2021Life Lingerie Satin Lace Slip ",
+    "img": "Clothing1.jpg",
+    "category": "Clothing",
+    "price": "15.99",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "Color: ",
+        "variantOptions": [
+            "Select Color",
+            "Black",
+            "White",
+            "Red"
+        ],
+        "detailText": [
+            "One Size"
+        ]
+    },
+    "detailImgs": [
+        "Clothing32.jpg",
+        "Clothing33.jpg",
+        "Clothing34.jpg",
+        "Clothing35.jpg",
+        "Clothing36.jpg",
+        "Clothing37.jpg",
+        "Clothing38.jpg",
+        "Clothing39.jpg",
+        "Clothing40.jpg",
+        "Clothing41.jpg",
+        "Clothing42.jpg",
+        "Clothing43.jpg",
+        "Clothing44.jpg",
+        "Clothing45.jpg"
+    ]
+}{
+    "ID": 3,
+    "name": "Mr. Black ",
+    "img": "Clothing2.jpg",
+    "category": "Clothing",
+    "price": "39.99",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "Color: ",
+        "variantOptions": [
+            "Select Color",
+            "Black",
+            "White",
+            "Select Size",
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "detailText": [
+            "Model wearing size S (height 163cm)"
+        ]
+    },
+    "detailImgs": [
+        "Clothing46.jpg",
+        "Clothing47.jpg",
+        "Clothing48.jpg",
+        "Clothing49.jpg",
+        "Clothing50.jpg",
+        "Clothing51.jpg",
+        "Clothing52.jpg"
+    ]
+}{
+    "ID": 4,
+    "name": "J\u2019aime wireless floral lace bralette",
+    "img": "Clothing3.jpg",
+    "category": "Clothing",
+    "price": "25.99",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "Color: ",
+        "variantOptions": [
+            "Select Color",
+            "Pink",
+            "Black",
+            "Select Size",
+            "S",
+            "M",
+            "L"
+        ],
+        "detailText": [
+            "~~~"
+        ]
+    },
+    "detailImgs": [
+        "Clothing53.jpg",
+        "Clothing54.jpg",
+        "Clothing55.jpg",
+        "Clothing56.jpg",
+        "Clothing57.jpg",
+        "Clothing58.jpg",
+        "Clothing59.jpg"
+    ]
+}{
+    "ID": 5,
+    "name": "Forget her, Forgive her \"Biny Gu\"",
+    "img": "Clothing4.jpg",
+    "category": "Clothing",
+    "price": "50.00",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "Color: ",
+        "variantOptions": [
+            "Select Color",
+            "Black",
+            "White",
+            "Select Size",
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "detailText": [
+            "Model wearing size M (height 168cm)"
+        ]
+    },
+    "detailImgs": [
+        "Clothing60.jpg",
+        "Clothing61.jpg",
+        "Clothing62.jpg",
+        "Clothing63.jpg",
+        "Clothing64.jpg",
+        "Clothing65.jpg",
+        "Clothing66.jpg",
+        "Clothing67.jpg"
+    ]
+}{
+    "ID": 6,
+    "name": "CharmingL X Camusmop \"Red Tear\"",
+    "img": "Clothing5.jpg",
+    "category": "Clothing",
+    "price": "59.99",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "Color: ",
+        "variantOptions": [
+            "Select Color",
+            "Black",
+            "White",
+            "Select Size",
+            "S",
+            "M",
+            "L"
+        ],
+        "detailText": [
+            "Model wearing size S (height 163cm)",
+            ""
+        ]
+    },
+    "detailImgs": [
+        "Clothing68.jpg",
+        "Clothing69.jpg",
+        "Clothing70.jpg",
+        "Clothing71.jpg",
+        "Clothing72.jpg",
+        "Clothing73.jpg"
+    ]
+}{
+    "ID": 7,
+    "name": "CAMUSMOP X AURA \"alphabet\"",
+    "img": "Clothing6.jpg",
+    "category": "Clothing",
+    "price": "59.99",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "Size: ",
+        "variantOptions": [
+            "Select Size",
+            "S",
+            "M",
+            "L"
+        ],
+        "detailText": [
+            "Model wearing size S (height 163cm)"
+        ]
+    },
+    "detailImgs": [
+        "Clothing74.jpg",
+        "Clothing75.jpg",
+        "Clothing76.jpg",
+        "Clothing77.jpg"
+    ]
+}{
+    "ID": 8,
+    "name": "Griechische Feigen  Lace bralette set",
+    "img": "Clothing7.jpg",
+    "category": "Clothing",
+    "price": "25.99",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "size: ",
+        "variantOptions": [
+            "Select size",
+            "S",
+            "M",
+            "L"
+        ],
+        "detailText": [
+            "~~~"
+        ]
+    },
+    "detailImgs": [
+        "Clothing78.jpg",
+        "Clothing79.jpg",
+        "Clothing80.jpg",
+        "Clothing81.jpg",
+        "Clothing82.jpg",
+        "Clothing83.jpg",
+        "Clothing84.jpg"
+    ]
+}{
+    "ID": 9,
+    "name": "Maple Socks Box Set ",
+    "img": "Clothing8.jpg",
+    "category": "Clothing",
+    "price": "21.99",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "style: ",
+        "variantOptions": [
+            "Select style",
+            "Set One",
+            "Set Two",
+            "Set Three",
+            "Set Four",
+            "Set Five",
+            "Set Six"
+        ],
+        "detailText": [
+            "",
+            "5 socks included ",
+            "Material: cotton ",
+            "Size: One-size",
+            ""
+        ]
+    },
+    "detailImgs": [
+        "Clothing85.jpg",
+        "Clothing86.jpg",
+        "Clothing87.jpg",
+        "Clothing88.jpg",
+        "Clothing89.jpg",
+        "Clothing90.jpg",
+        "Clothing91.jpg",
+        "Clothing92.jpg"
+    ]
+}{
+    "ID": 10,
+    "name": "Cozy Essential wool socks \u2014 8 colors",
+    "img": "Clothing9.jpg",
+    "category": "Clothing",
+    "price": "3.99",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "Color: ",
+        "variantOptions": [
+            "Select Color",
+            "Black",
+            "Dark Grey",
+            "Light Grey",
+            "Yellow",
+            "Blue",
+            "Dark Green",
+            "Camel",
+            "Red"
+        ],
+        "detailText": [
+            "~~~"
+        ]
+    },
+    "detailImgs": [
+        "Clothing93.jpg",
+        "Clothing94.jpg",
+        "Clothing95.jpg",
+        "Clothing96.jpg",
+        "Clothing97.jpg",
+        "Clothing98.jpg",
+        "Clothing99.jpg",
+        "Clothing100.jpg"
+    ]
+}{
+    "ID": 11,
+    "name": "Cookie Fantasy - Mid Rise Socks",
+    "img": "Clothing10.jpg",
+    "category": "Clothing",
+    "price": "8.30",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "",
+        "variantOptions": [],
+        "detailText": [
+            "None"
+        ]
+    },
+    "detailImgs": [
+        "Clothing101.jpg",
+        "Clothing102.jpg"
+    ]
+}{
+    "ID": 12,
+    "name": " Bobble Candy - Mid Rise Socks",
+    "img": "Clothing11.jpg",
+    "category": "Clothing",
+    "price": "8.90",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "",
+        "variantOptions": [],
+        "detailText": [
+            "",
+            "Thickness: regular ",
+            "Material: Cotton ",
+            "Size: 35-42 ",
+            ""
+        ]
+    },
+    "detailImgs": [
+        "Clothing103.jpg",
+        "Clothing104.jpg"
+    ]
+}{
+    "ID": 13,
+    "name": " Hip-Hop Tomato - Mid Rise Socks",
+    "img": "Clothing12.jpg",
+    "category": "Clothing",
+    "price": "8.30",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "",
+        "variantOptions": [],
+        "detailText": [
+            "",
+            "Thickness: regular ",
+            "Material: Cotton ",
+            "Size: 35-42 ",
+            ""
+        ]
+    },
+    "detailImgs": [
+        "Clothing105.jpg",
+        "Clothing106.jpg"
+    ]
+}{
+    "ID": 14,
+    "name": "Hip-Hop Moo Moo- Mid Rise Socks",
+    "img": "Clothing13.jpg",
+    "category": "Clothing",
+    "price": "8.30",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "",
+        "variantOptions": [],
+        "detailText": [
+            "",
+            "Thickness: regular",
+            "Material: Cotton ",
+            "Size: 35-42 ",
+            ""
+        ]
+    },
+    "detailImgs": [
+        "Clothing107.jpg",
+        "Clothing108.jpg"
+    ]
+}{
+    "ID": 15,
+    "name": "Hip-Hop Chocolate - Mid Rise Socks",
+    "img": "Clothing14.jpg",
+    "category": "Clothing",
+    "price": "3.99",
+    "onSale": false,
+    "soldOut": false,
+    "detailText": {
+        "variantOptionTitle": "",
+        "variantOptions": [],
+        "detailText": [
+            "",
+            "Thickness: regular ",
+            "Material: Cotton ",
+            "Size: 35-42 ",
+            ""
+        ]
+    },
+    "detailImgs": [
+        "Clothing109.jpg",
+        "Clothing110.jpg"
+    ]
+}{
+    "ID": 16,
+    "name": "Japanese plain cotton socks - ten colors/ ten pairs included/",
+    "img": "Clothing15.jpg",
+    "category": "Clothing",
+    "price": "15.99",
+    "onSale": false,
+    "soldOut": true,
+    "detailText": {
+        "variantOptionTitle": "",
+        "variantOptions": [],
+        "detailText": [
+            "None"
+        ]
+    },
+    "detailImgs": [
+        "Clothing111.jpg",
+        "Clothing112.jpg",
+        "Clothing113.jpg",
+        "Clothing114.jpg",
+        "Clothing115.jpg"
+    ]
+}{
+    "ID": 17,
+    "name": "Pure color socks- free size. 3 Pairs include",
+    "img": "Clothing16.jpg",
+    "category": "Clothing",
+    "price": "5.00",
+    "onSale": false,
+    "soldOut": true,
+    "detailText": {
+        "variantOptionTitle": "color: ",
+        "variantOptions": [
+            "Select color",
+            "Grey",
+            "White",
+            "Black"
+        ],
+        "detailText": [
+            "3 pairs include"
+        ]
+    },
+    "detailImgs": []
+}

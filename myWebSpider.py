@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 
 headers="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36";
 imgNum = 0;
+downloadFail = [];
 productDict = {
 	"ID":0,
 	"name":"",
@@ -47,19 +48,40 @@ def getAllCategory(pageText):
 def downloadProductsImage(key,productImgArray):
 	global imgNum;
 	finalProductImgArray = [];
+	key = key.replace(u' ', u'_');
 	os.makedirs('./images/', exist_ok=True);
 	os.makedirs('./images/%s/'%key, exist_ok=True);
 	for pi in productImgArray:
-		r = requests.get(pi);
+		print("Downloading image: %s%d.jpg"%(key,imgNum));
+		try:
+			r = requests.get(pi,timeout=5);
+		except requests.exceptions.RequestException as e:
+			requestOK = False;
+			exceptionMs = str(e)
+			print("Failed to request image: %s%d.jpg address"%(key,imgNum));
+			for i in range(2):
+				try:
+					r = requests.get(pi,timeout=5);
+					requestOK = True;
+					break;
+				except Exception as e:
+					print("Failed to request image: %s%d.jpg address again %d"%(key,imgNum,(i+2)));
+			if not requestOK:
+				downloadFail.append(pi);
+				print("Image:%s%d.jpg %s"%(key,imgNum,exceptionMs));
+
+
 		with open('./images/%s/%s%d.jpg'%(key,key,imgNum), 'wb') as f:
 			f.write(r.content);
 		finalProductImgArray.append('%s%d.jpg'%(key,imgNum));
 		imgNum+=1; 
-		print("Downloading image: %s%d.jpg"%(key,imgNum));
+		
 	return finalProductImgArray;
 
+
+
 def getSingleProductDetailImgs(key,href):
-	print("Requesting %s product detail images:"%(key));
+	print("Fetching %s product detail images:"%(key));
 	singleProductDetailImgs = [];
 	detailPageText = getPageText(href);
 	soup = BeautifulSoup(detailPageText,'lxml');
@@ -73,8 +95,10 @@ def getSingleProductDetailImgs(key,href):
 	finalProductDetailImgArray = downloadProductsImage(key, singleProductDetailImgs);
 	return finalProductDetailImgArray;
 
+
+
 def getSingleProductDetailText(key,href):
-	print("Requesting %s product detail text..."%(key));
+	print("Fetching %s product detail text..."%(key));
 	productTextDict = {
 		"variantOptionTitle":"",
 		"variantOptions":[],
@@ -86,7 +110,7 @@ def getSingleProductDetailText(key,href):
 	newSoup = BeautifulSoup(str(detailTextDiv),'lxml');
 	for p in newSoup.findAll('p'):
 		detailText = p.get_text();
-		detailText = detailText.replace(u'\xa0', u' ')
+		detailText = detailText.replace(u'\xa0', u' ');
 		productTextDict["detailText"].append(detailText);
 
 	variantOptionTitle = soup.find('div',{'class':'variant-option-title'});
@@ -113,6 +137,7 @@ def getProductsDetails(key, pageText):
 		productDetailImgArray.append(getSingleProductDetailImgs(key,href));
 		productDetailTextArray.append(getSingleProductDetailText(key,href));
 	return productDetailTextArray,productDetailImgArray;
+
 
 
 def getProductInfo(key, pageText):
@@ -164,13 +189,15 @@ def getProductInfo(key, pageText):
 		productDict["soldOut"]=productSoldArray[i];
 		productDict["detailText"]=productDetailTextArray[i];
 		productDict["detailImgs"]=productDetailImgsArray[i];
-		print("Wring %s product No.%d"%(key,productDict["ID"]));
+		print("Writing %s product No.%d"%(key,productDict["ID"]));
 		writeJson(key);
-		
+	img = 0
 
 
 def writeJson(key):
+	key = key.replace(u' ', u'_');
 	try:	
+		os.makedirs('./dataModel/', exist_ok=True);
 		with open("dataModel/%s.json"%key,"a+") as f:
 			json.dump(productDict,f,indent = 4);
 	except:
@@ -178,19 +205,40 @@ def writeJson(key):
 
 
 def go(categoryDict):
-	# for key in categoryDict:
-	# 	url = categoryDict[key];
-	# 	pageText=getPageText(url);
-	# 	getProductInfo(key, pageText);
-	url = categoryDict['Bedroom'];
-	pageText=getPageText(url);
-	getProductInfo('Bedroom', pageText);
-
-
+	print("Here");
+	for key in categoryDict:
+		print("Key: ", key);
+		if not key == "Bedroom":
+			imgNum = 0;
+			url = categoryDict[key];
+			pageText=getPageText(url);
+			getProductInfo(key, pageText);
+	#####Test cases:
+	# url = categoryDict['pet supplies'];
+	# pageText=getPageText(url);
+	# getProductInfo('pet supplies', pageText);
 
 
 if __name__ == "__main__":
-	homeUrl= "https://2021life.com";
-	homePageText = getPageText(homeUrl);
-	categoryDict = getAllCategory(homePageText);
+	# homeUrl= "https://2021life.com";
+	# homePageText = getPageText(homeUrl);
+	# categoryDict = getAllCategory(homePageText);
+	categoryDict={};
 	go(categoryDict);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
