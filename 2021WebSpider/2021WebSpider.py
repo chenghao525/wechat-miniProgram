@@ -1,10 +1,11 @@
 import requests
 import json
 import os
+import threading
+import re
 from bs4 import BeautifulSoup
 
 headers="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36";
-imgNum = 0;
 downloadFail = [];
 productDict = {
 	"ID":0,
@@ -21,7 +22,7 @@ productDict = {
 def getPageText(url):
 	try:
 		print("Requesting: %s..."%(url));
-		r = requests.get(url, timeout=300);
+		r = requests.get(url, timeout=60);
 		r.raise_for_status();
 		r.encoding = r.apparent_encoding;
 		print("Done");
@@ -45,16 +46,16 @@ def getAllCategory(pageText):
 	return categoryDict;
 	
 
-def downloadProductsImage(key,productImgArray):
-	global imgNum;
+def downloadProductsImage(key,productImgArray,imgNum):
 	finalProductImgArray = [];
 	key = key.replace(u' ', u'_');
 	os.makedirs('./images/', exist_ok=True);
 	os.makedirs('./images/%s/'%key, exist_ok=True);
+
 	for pi in productImgArray:
 		print("Downloading image: %s%d.jpg"%(key,imgNum));
 		try:
-			r = requests.get(pi,timeout=5);
+			r = requests.get(pi,timeout=10);
 		except requests.exceptions.RequestException as e:
 			requestOK = False;
 			exceptionMs = str(e)
@@ -63,6 +64,7 @@ def downloadProductsImage(key,productImgArray):
 				try:
 					r = requests.get(pi,timeout=5);
 					requestOK = True;
+					print("Success!");
 					break;
 				except Exception as e:
 					print("Failed to request image: %s%d.jpg address again %d"%(key,imgNum,(i+2)));
@@ -76,11 +78,11 @@ def downloadProductsImage(key,productImgArray):
 		finalProductImgArray.append('%s%d.jpg'%(key,imgNum));
 		imgNum+=1; 
 		
-	return finalProductImgArray;
+	return imgNum, finalProductImgArray;
 
 
 
-def getSingleProductDetailImgs(key,href):
+def getSingleProductDetailImgs(key,href,imgNum):
 	print("Fetching %s product detail images:"%(key));
 	singleProductDetailImgs = [];
 	detailPageText = getPageText(href);
@@ -92,8 +94,8 @@ def getSingleProductDetailImgs(key,href):
 	for ti in thumbImgs:
 		singleProductDetailImgs.append(ti.get('data-src'));
 
-	finalProductDetailImgArray = downloadProductsImage(key, singleProductDetailImgs);
-	return finalProductDetailImgArray;
+	newImgNum, finalProductDetailImgArray = downloadProductsImage(key, singleProductDetailImgs,imgNum);
+	return newImgNum,finalProductDetailImgArray;
 
 
 
@@ -123,24 +125,56 @@ def getSingleProductDetailText(key,href):
 	return productTextDict;
 	
 
-def getProductsDetails(key, pageText):
-	productDetailPageArray = [];
+def getProductsDetails(key, pageText, productDetailPageArray,imgNum):
 	productDetailImgArray = [];
 	productDetailTextArray = [];
-	soup = BeautifulSoup(pageText,'lxml');
-	products = soup.findAll(class_ = 'ProductList-item-link');
-	for p in products:
-		link = p.get('href')
-		link = 'https://www.2021life.com' + link;
-		productDetailPageArray.append(link);
+	newImgNum = imgNum;
+	
 	for href in productDetailPageArray:
-		productDetailImgArray.append(getSingleProductDetailImgs(key,href));
+		
+		hrefArray = href.split('/');
+		imgName = hrefArray[-1];
+		# print("!!!!",imgName);
+		newImgNum,finalProductDetailImgArray = getSingleProductDetailImgs(key,href,newImgNum);
+		productDetailImgArray.append(finalProductDetailImgArray);
 		productDetailTextArray.append(getSingleProductDetailText(key,href));
 	return productDetailTextArray,productDetailImgArray;
 
+def nameAlreadyExist(finalNameArray, newName):
+	nameArray = finalNameArray;
+	nameArray.append(newName);
+	return len(nameArray) != len(set(nameArray));
 
 
-def getProductInfo(key, pageText):
+def makeDict(productImgHref, productName):
+	outDict = {};
+	fNameArray = [];
+	finalNameArray = [];
+	nameTail = 0;
+	finalName = "";
+	for name in productName:
+		nameArray = name.split(" ");
+		if not nameArray[0]=='':
+			fNameArray.append(nameArray[0]);
+		else:
+			fNameArray.append(nameArray[1]);
+	for i in range(len(productImgHref)):
+		name = fNameArray[i];
+		newName = ''.join(e for e in name if e.isalnum())
+		if nameAlreadyExist(finalNameArray, newName):
+			finalName = newName + str(nameTail);
+			nameTail += 1;
+		else:
+			nameTail = 0;
+			print("Wrong!!!");
+		finalNameArray.append(finalName);
+		print("New name: ", finalName);
+		href = productImgHref[i];
+		outDict.update({href:finalName});
+	print("Nmae!:",finalNameArray);
+	return outDict;
+
+def getProductInfo(key, pageText, imgNum):
 	productDict["category"] = key;
 	soup = BeautifulSoup(pageText,'lxml');
 	products = soup.findAll(class_ = 'ProductList-item-link');
@@ -176,9 +210,18 @@ def getProductInfo(key, pageText):
 		else:
 			productSoldArray.append(False);
 
-	finalProductImgArray = downloadProductsImage(key,productImgArray);
-	
-	productDetailTextArray,productDetailImgsArray=getProductsDetails(key,pageText);
+	productDetailPageArray = [];
+	products = soup.findAll(class_ = 'ProductList-item-link');
+	for p in products:
+		link = p.get('href')
+		link = 'https://www.2021life.com' + link;
+		productDetailPageArray.append(link);
+	for href in productDetailPageArray:
+		hrefArray = href.split('/');
+		imgName = hrefArray[-1];
+	homeImageHrefNameDict = makeDict(productImgArray, productTitleArray);
+	newImgNum, finalProductImgArray = downloadProductsImage(key,productImgArray,imgNum);
+	productDetailTextArray,productDetailImgsArray = getProductsDetails(key,pageText,productDetailPageArray, newImgNum);
 
 	for i in range(0,len(products)):
 		productDict["ID"]+=1;
@@ -191,7 +234,6 @@ def getProductInfo(key, pageText):
 		productDict["detailImgs"]=productDetailImgsArray[i];
 		print("Writing %s product No.%d"%(key,productDict["ID"]));
 		writeJson(key);
-	img = 0
 
 
 def writeJson(key):
@@ -205,14 +247,15 @@ def writeJson(key):
 
 
 def go(categoryDict):
-	print("Here");
+	# global imgNum;
 	for key in categoryDict:
-		print("Key: ", key);
-		if not key == "Bedroom":
+		if not (key == "Bedroom" or key == "Bathroom" or key == "Kitchen" or key =="Fun" or key == "Artistic"):
 			imgNum = 0;
 			url = categoryDict[key];
 			pageText=getPageText(url);
-			getProductInfo(key, pageText);
+			productThread = threading.Thread(target = getProductInfo, args = (key, pageText, imgNum));
+			productThread.start();
+			# getProductInfo(key, pageText);
 	#####Test cases:
 	# url = categoryDict['pet supplies'];
 	# pageText=getPageText(url);
@@ -220,25 +263,9 @@ def go(categoryDict):
 
 
 if __name__ == "__main__":
-	# homeUrl= "https://2021life.com";
-	# homePageText = getPageText(homeUrl);
-	# categoryDict = getAllCategory(homePageText);
-	categoryDict={};
+	homeUrl= "https://2021life.com";
+	homePageText = getPageText(homeUrl);
+	categoryDict = getAllCategory(homePageText);
 	go(categoryDict);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	print("Fail to download: ",downloadFail);
 
