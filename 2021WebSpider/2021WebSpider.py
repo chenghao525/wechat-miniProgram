@@ -46,43 +46,44 @@ def getAllCategory(pageText):
 	return categoryDict;
 	
 
-def downloadProductsImage(key,productImgArray,imgNum):
+def downloadProductsImage(key, productImgArray, nameHrefDict):
+	tempProductImgArray = [];
 	finalProductImgArray = [];
 	key = key.replace(u' ', u'_');
 	os.makedirs('./images/', exist_ok=True);
 	os.makedirs('./images/%s/'%key, exist_ok=True);
 
-	for pi in productImgArray:
-		print("Downloading image: %s%d.jpg"%(key,imgNum));
-		try:
-			r = requests.get(pi,timeout=10);
-		except requests.exceptions.RequestException as e:
-			requestOK = False;
-			exceptionMs = str(e)
-			print("Failed to request image: %s%d.jpg address"%(key,imgNum));
-			for i in range(2):
-				try:
-					r = requests.get(pi,timeout=5);
-					requestOK = True;
-					print("Success!");
-					break;
-				except Exception as e:
-					print("Failed to request image: %s%d.jpg address again %d"%(key,imgNum,(i+2)));
-			if not requestOK:
-				downloadFail.append(pi);
-				print("Image:%s%d.jpg %s"%(key,imgNum,exceptionMs));
+	for hn in nameHrefDict:
+		imgNum=0;
+		for href in nameHrefDict[hn]:
+			print("Downloading image: %s%d.jpeg"%(hn,imgNum));
+			try:
+				r = requests.get(href,timeout=10);
+			except requests.exceptions.RequestException as e:
+				requestOK = False;
+				exceptionMs = str(e)
+				print("Failed to request image: %s%d.jpeg address"%(hn,imgNum));
+				for i in range(2):
+					try:
+						r = requests.get(href,timeout=5);
+						requestOK = True;
+						print("Success!");
+						break;
+					except Exception as e:
+						print("Failed to request image: %s%d.jpeg address again %d"%(hn,imgNum,(i+2)));
+				if not requestOK:
+					downloadFail.append(href);
+					print("Image:%s%d.jpeg %s"%(hn,imgNum,exceptionMs));
+			with open('./images/%s/%s%d.jpeg'%(key,hn,imgNum), 'wb') as f:
+				f.write(r.content);
+			finalProductImgArray.append('%s%d.jpeg'%(hn,imgNum));
+			imgNum += 1;
+	print("Lenth of final: ",key,len(finalProductImgArray))
+	return finalProductImgArray;
 
 
-		with open('./images/%s/%s%d.jpg'%(key,key,imgNum), 'wb') as f:
-			f.write(r.content);
-		finalProductImgArray.append('%s%d.jpg'%(key,imgNum));
-		imgNum+=1; 
-		
-	return imgNum, finalProductImgArray;
-
-
-
-def getSingleProductDetailImgs(key,href,imgNum):
+def getSingleProductDetailImgs(key,href, productDetailName):
+	productDetailNameHrefDict = {};
 	print("Fetching %s product detail images:"%(key));
 	singleProductDetailImgs = [];
 	detailPageText = getPageText(href);
@@ -94,8 +95,9 @@ def getSingleProductDetailImgs(key,href,imgNum):
 	for ti in thumbImgs:
 		singleProductDetailImgs.append(ti.get('data-src'));
 
-	newImgNum, finalProductDetailImgArray = downloadProductsImage(key, singleProductDetailImgs,imgNum);
-	return newImgNum,finalProductDetailImgArray;
+	productDetailNameHrefDict.update({productDetailName:singleProductDetailImgs});
+	finalProductDetailImgArray = downloadProductsImage(key, singleProductDetailImgs, productDetailNameHrefDict);
+	return finalProductDetailImgArray;
 
 
 
@@ -125,56 +127,56 @@ def getSingleProductDetailText(key,href):
 	return productTextDict;
 	
 
-def getProductsDetails(key, pageText, productDetailPageArray,imgNum):
+def getProductsDetails(key, pageText, productDetailPageArray, productNameArray):
 	productDetailImgArray = [];
 	productDetailTextArray = [];
-	newImgNum = imgNum;
+	i = 0;
 	
 	for href in productDetailPageArray:
-		
+		productNameArray[i] += "_detail_";
 		hrefArray = href.split('/');
-		imgName = hrefArray[-1];
-		# print("!!!!",imgName);
-		newImgNum,finalProductDetailImgArray = getSingleProductDetailImgs(key,href,newImgNum);
+	
+		finalProductDetailImgArray = getSingleProductDetailImgs(key, href, productNameArray[i]);
 		productDetailImgArray.append(finalProductDetailImgArray);
 		productDetailTextArray.append(getSingleProductDetailText(key,href));
+		i+=1;
 	return productDetailTextArray,productDetailImgArray;
-
-def nameAlreadyExist(finalNameArray, newName):
-	nameArray = finalNameArray;
-	nameArray.append(newName);
-	return len(nameArray) != len(set(nameArray));
 
 
 def makeDict(productImgHref, productName):
 	outDict = {};
 	fNameArray = [];
 	finalNameArray = [];
-	nameTail = 0;
 	finalName = "";
+	myNameTail = {};
+
 	for name in productName:
-		nameArray = name.split(" ");
+		nameArray = name.split(' ');
 		if not nameArray[0]=='':
 			fNameArray.append(nameArray[0]);
 		else:
 			fNameArray.append(nameArray[1]);
 	for i in range(len(productImgHref)):
+		href = [];
 		name = fNameArray[i];
 		newName = ''.join(e for e in name if e.isalnum())
-		if nameAlreadyExist(finalNameArray, newName):
-			finalName = newName + str(nameTail);
-			nameTail += 1;
+		print("Prev name:",newName)
+		if newName in finalNameArray:
+			if newName not in myNameTail.keys():
+				myNameTail.update({newName:0});
+			finalName = newName + str(myNameTail[newName]);
+			myNameTail[newName]+=1;
 		else:
-			nameTail = 0;
-			print("Wrong!!!");
+			finalName = newName;
+		print("Prev after:",finalName)
 		finalNameArray.append(finalName);
-		print("New name: ", finalName);
-		href = productImgHref[i];
-		outDict.update({href:finalName});
-	print("Nmae!:",finalNameArray);
-	return outDict;
+		href.append(productImgHref[i]);
+		outDict.update({finalName:href});
+	return finalNameArray, outDict;
 
-def getProductInfo(key, pageText, imgNum):
+
+
+def getProductInfo(key, pageText):
 	productDict["category"] = key;
 	soup = BeautifulSoup(pageText,'lxml');
 	products = soup.findAll(class_ = 'ProductList-item-link');
@@ -219,20 +221,21 @@ def getProductInfo(key, pageText, imgNum):
 	for href in productDetailPageArray:
 		hrefArray = href.split('/');
 		imgName = hrefArray[-1];
-	homeImageHrefNameDict = makeDict(productImgArray, productTitleArray);
-	newImgNum, finalProductImgArray = downloadProductsImage(key,productImgArray,imgNum);
-	productDetailTextArray,productDetailImgsArray = getProductsDetails(key,pageText,productDetailPageArray, newImgNum);
+	productNameArray, homeImageNameHrefDict = makeDict(productImgArray, productTitleArray);
+	finalProductImgArray = downloadProductsImage(key,productImgArray,homeImageNameHrefDict);
+	productDetailTextArray,productDetailImgsArray = getProductsDetails(key,pageText,productDetailPageArray, productNameArray);
 
 	for i in range(0,len(products)):
 		productDict["ID"]+=1;
 		productDict["name"]=productTitleArray[i];
 		productDict["img"]=finalProductImgArray[i];
 		productDict["price"]=productPriceArray[i];
+		productDict["category"]=key;
 		productDict["onSale"]=productSaleArray[i];
 		productDict["soldOut"]=productSoldArray[i];
 		productDict["detailText"]=productDetailTextArray[i];
 		productDict["detailImgs"]=productDetailImgsArray[i];
-		print("Writing %s product No.%d"%(key,productDict["ID"]));
+		print("Writing %s product No.%d"%(key,i));
 		writeJson(key);
 
 
@@ -245,22 +248,28 @@ def writeJson(key):
 	except:
 		return "ERR";
 
+def initialization():
+	productDict = {
+	"ID":0,
+	"name":"",
+	"img":"",
+	"category":"",
+	"price":"",
+	"onSale":False,
+	"soldOut":False,
+	"detailText":{},
+	"detailImgs":[]
+	}
+	downloadFail = [];
 
 def go(categoryDict):
-	# global imgNum;
 	for key in categoryDict:
-		if not (key == "Bedroom" or key == "Bathroom" or key == "Kitchen" or key =="Fun" or key == "Artistic"):
-			imgNum = 0;
-			url = categoryDict[key];
-			pageText=getPageText(url);
-			productThread = threading.Thread(target = getProductInfo, args = (key, pageText, imgNum));
-			productThread.start();
-			# getProductInfo(key, pageText);
-	#####Test cases:
-	# url = categoryDict['pet supplies'];
-	# pageText=getPageText(url);
-	# getProductInfo('pet supplies', pageText);
-
+		initialization();
+		# if (key == 'Kitchen'):
+		url = categoryDict[key];
+		pageText=getPageText(url);
+		productThread = threading.Thread(target = getProductInfo, args = (key, pageText));
+		productThread.start();
 
 if __name__ == "__main__":
 	homeUrl= "https://2021life.com";
