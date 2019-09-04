@@ -13,3 +13,5 @@ $ sudo pip3 install requests       //输入密码
 $ pip3 install BeautifulSoup4
 
 $ pip3 install lxml
+
+$ python3 2021WebSpider.py
