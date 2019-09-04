@@ -1,6 +1,7 @@
 import requests
 import json
 import os
+import urllib
 import threading
 import re
 from bs4 import BeautifulSoup
@@ -74,8 +75,13 @@ def downloadProductsImage(key, productImgArray, nameHrefDict):
 				if not requestOK:
 					downloadFail.append(href);
 					print("Image:%s%d.jpeg %s"%(hn,imgNum,exceptionMs));
-			with open('./images/%s/%s%d.jpeg'%(key,hn,imgNum), 'wb') as f:
-				f.write(r.content);
+			# with open('./images/%s/%s%d.jpeg'%(key,hn,imgNum), 'wb') as f:
+			# 	f.write(r.content);
+
+			folder_path = "./images/"+key
+			filename = str(hn) + str(imgNum)
+			urllib.request.urlretrieve(href , os.path.join(folder_path,filename) + '.jpeg')
+
 			finalProductImgArray.append('%s%d.jpeg'%(hn,imgNum));
 			imgNum += 1;
 	print("Lenth of final: ",key,len(finalProductImgArray))
@@ -160,7 +166,6 @@ def makeDict(productImgHref, productName):
 		href = [];
 		name = fNameArray[i];
 		newName = ''.join(e for e in name if e.isalnum())
-		print("Prev name:",newName)
 		if newName in finalNameArray:
 			if newName not in myNameTail.keys():
 				myNameTail.update({newName:0});
@@ -168,7 +173,6 @@ def makeDict(productImgHref, productName):
 			myNameTail[newName]+=1;
 		else:
 			finalName = newName;
-		print("Prev after:",finalName)
 		finalNameArray.append(finalName);
 		href.append(productImgHref[i]);
 		outDict.update({finalName:href});
