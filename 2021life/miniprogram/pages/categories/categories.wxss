@@ -1,0 +1,24 @@
+/* miniprogram/pages/categories/categories.wxss */
+.goods-categories{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 0rpx;
+}
+
+.category-parent{
+  display: flex;
+  margin-top: 8px;
+  flex-direction: column;
+  align-items: center;
+  border:1px solid #000;
+}
+
+
+.category-img{
+  width:360rpx;
+  height:360rpx;
+}
+

@@ -36,7 +36,7 @@ Page({
     const cloud = wx.cloud;
     cloud.callFunction({
       name: "getCollection",
-      data:{CollectionName:"merchandise"},
+      data:{collectionName:"homeSwiper"},
       success: res => {
         console.log(res)
         res.result.data.map(item => {
@@ -50,12 +50,17 @@ Page({
       }
     })
     cloud.callFunction({
-      name: "getHomeItems",
-      data: { CollectionName: "homeItem" },
+      name: "getCollection",
+      data: {collectionName: "homeItem" },
       success: res=>{
-        console.log(res);
+        let productList = res.result.data;
+        for (let product in productList) {
+          let productCategory = productList[product].category.toLowerCase();
+          productCategory = productCategory.replace(" ","_");
+          productList[product].img = `cloud://cloud2021-01.636c-cloud2021-01-1300062627/${productCategory}/` + productList[product].img;
+        }
         that.setData({
-          itemList:res.result.data
+          itemList: productList
       })
       },fail: err => {
         console.log(err)

@@ -18,10 +18,9 @@
 <view class="section goods-list">
 	<block wx:for="{{itemList}}" wx:key="index" wx:for-item="product">
 		<view class="goods-item">
-			<image class="goods-img {{product.is_new?'new':''}} {{product.on_sale?'on-sale':''}}" src="{{product.img}}" data-pid="{{product.id}}" mode="aspectFill" bindtap="showDetail"/>
+			<image class="goods-img {{product.sold_out?'sold-out':''}} {{product.on_sale?'on-sale':''}}" src="{{product.img}}" data-pid="{{product.id}}" bindtap="showDetail"/>
 			<text class="title">{{product.name}}</text>
-			<text class="desp">{{product.description}}</text>
-			<text class="price">{{product.price}}</text>
+			<text class="price">${{product.price}}</text>
 		</view>
 	</block>
 </view>

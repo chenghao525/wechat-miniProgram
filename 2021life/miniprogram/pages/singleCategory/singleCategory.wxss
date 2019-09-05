@@ -1,18 +1,5 @@
-/* pages/home/home.wxss */
+/* miniprogram/pages/singleCategory/singleCategory.wxss */
 
-.swiper-container{
-  position: relative;
-}
-
-.swiper-container .top-banner{
-  height: 400rpx;
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.swiper-container .top-banner .banner-image{
-  width: 100%;
-}
 
 .goods-list{
   display: flex;

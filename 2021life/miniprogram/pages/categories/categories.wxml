@@ -1,0 +1,10 @@
+<!--miniprogram/pages/categories/categories.wxml-->
+
+<view class="goods-categories">
+  <block wx:for="{{categoryList}}" wx:key="index" wx:for-item="category">
+    <view class="category-parent">
+      <image mode="scaleToFill" class="category-img" src="{{category.img}}" data-category="{{category.category}}"  bindtap="toCategory"/>
+      <text class="category-text">{{category.category}}</text>
+    </view>
+  </block>
+</view>

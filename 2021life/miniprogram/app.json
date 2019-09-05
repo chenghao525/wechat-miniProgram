@@ -1,8 +1,9 @@
 {
   "pages": [
     "pages/home/home",
-    "pages/databaseGuide/databaseGuide",
-    "pages/deployFunctions/deployFunctions"
+    "pages/deployFunctions/deployFunctions",
+    "pages/categories/categories",
+    "pages/singleCategory/singleCategory"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -11,17 +12,17 @@
     "navigationBarTitleText": "2021Life",
     "navigationBarTextStyle": "black"
   },
-  "tabBar":{
-    "color":"#33333",
+  "tabBar": {
+    "color": "#33333",
     "selectedColor": "#d81e06",
-    "list":[
+    "list": [
       {
         "pagePath": "pages/home/home",
         "iconPath": "images/home.png",
         "selectedIconPath": "images/home_s.png"
       },
       {
-        "pagePath": "pages/databaseGuide/databaseGuide",
+        "pagePath": "pages/categories/categories",
         "iconPath": "images/catagory.png",
         "selectedIconPath": "images/catagory_s.png"
       },
