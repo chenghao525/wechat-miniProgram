@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/home/home",
-    "pages/deployFunctions/deployFunctions",
     "pages/categories/categories",
     "pages/singleCategory/singleCategory"
   ],
@@ -27,11 +26,14 @@
         "selectedIconPath": "images/catagory_s.png"
       },
       {
-        "pagePath": "pages/deployFunctions/deployFunctions",
+        "pagePath": "pages/home/home",
         "iconPath": "images/me.png",
         "selectedIconPath": "images/me_s.png"
       }
     ]
+  },
+  "usingComponents": {
+      "van-toast": "../../miniprogram_npm/vant-weapp/toast/index"
   },
   "sitemapLocation": "sitemap.json"
 }

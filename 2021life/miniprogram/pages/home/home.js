@@ -1,3 +1,5 @@
+import {getCorrectImgUrl} from "../../functions"
+import Toast from '../../miniprogram_npm/vant-weapp/toast/index'
 const App = getApp();
 
 Page({
@@ -6,7 +8,8 @@ Page({
     autoplay: true,
     indicator_dots: true,
     itemList:[],
-    imgURLs:[]
+    imgURLs:[],
+    counter: 1,
   },
   uploadPic: function(){
     let that = this;
@@ -32,8 +35,14 @@ Page({
   }, 
   onLoad: function (option) {
     let that = this;
+    let counter = this.data.counter;
     var imagePaths = [];
     const cloud = wx.cloud;
+
+    wx.showLoading({
+      title: 'loading...',
+      mask: true,
+    })
     cloud.callFunction({
       name: "getCollection",
       data:{collectionName:"homeSwiper"},
@@ -51,20 +60,60 @@ Page({
     })
     cloud.callFunction({
       name: "getCollection",
-      data: {collectionName: "homeItem" },
+      data: {collectionName: "homeItem", counter: counter},
       success: res=>{
-        let productList = res.result.data;
-        for (let product in productList) {
-          let productCategory = productList[product].category.toLowerCase();
-          productCategory = productCategory.replace(" ","_");
-          productList[product].img = `cloud://cloud2021-01.636c-cloud2021-01-1300062627/${productCategory}/` + productList[product].img;
-        }
+        let productList = getCorrectImgUrl(res.result.data);
         that.setData({
-          itemList: productList
+          itemList: productList,
+          counter: counter + 1
       })
       },fail: err => {
         console.log(err)
       }
     })
-  }
+    setTimeout(() => {
+      wx.hideLoading();
+    }, 100);
+  },
+  onReachBottom: function () {
+    let that = this;
+    const cloud = wx.cloud;
+    let counter = this.data.counter;
+
+   
+
+    cloud.callFunction({
+      name: "getCollection",
+      data: {
+        collectionName: "homeItem",
+        counter: counter,
+      },
+      success: res => {
+        let productList = that.data.itemList;
+        let newProducts = getCorrectImgUrl(res.result.data);
+
+        if (newProducts.length !== 0){
+          wx.showLoading({
+            title: 'loading...',
+            mask: true,
+          })
+        } else {
+          wx.showToast({
+            title: '没有更多了！',
+          })
+        }
+        productList = productList.concat(newProducts);
+        that.setData({
+          itemList: productList,
+          counter: counter + 1,
+        })
+        setTimeout(() => {
+          wx.hideLoading();
+        }, 900);
+      }, fail: err => {
+        console.log(err);
+      }
+    })
+    
+  },
 })

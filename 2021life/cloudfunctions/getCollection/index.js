@@ -5,6 +5,10 @@ cloud.init()
 const db = cloud.database()
 // 云函数入口函数
 exports.main = async (event, context) => {
-  return await db.collection(event.collectionName).get()
+  if (event.collectionName === "homeSwiper" || event.collectionName === "categories"){
+    return await db.collection(event.collectionName).get()
+  }else{
+    return await db.collection(event.collectionName).skip((event.counter-1)*6).limit(6).get()
+  }
 }
 

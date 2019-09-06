@@ -27,7 +27,3 @@
 
 
 
-<button class="uploadButton" bindtap="uploadPic">Upload a pic!</button>
-<view class="listItem">
-  <image class="image1" src="{{imagePath}}" mode="aspectFIt"></image>
-</view>

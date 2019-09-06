@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 headers="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36";
 downloadFail = [];
 productDict = {
-	"ID":0,
+	"ID":175,
 	"name":"",
 	"img":"",
 	"category":"",
@@ -75,12 +75,12 @@ def downloadProductsImage(key, productImgArray, nameHrefDict):
 				if not requestOK:
 					downloadFail.append(href);
 					print("Image:%s%d.jpeg %s"%(hn,imgNum,exceptionMs));
-			# with open('./images/%s/%s%d.jpeg'%(key,hn,imgNum), 'wb') as f:
-			# 	f.write(r.content);
+			with open('./images/%s/%s%d.jpeg'%(key,hn,imgNum), 'wb') as f:
+				f.write(r.content);
 
-			folder_path = "./images/"+key
-			filename = str(hn) + str(imgNum)
-			urllib.request.urlretrieve(href , os.path.join(folder_path,filename) + '.jpeg')
+			# folder_path = "./images/"+key
+			# filename = str(hn) + str(imgNum)
+			# urllib.request.urlretrieve(href , os.path.join(folder_path,filename) + '.jpeg')
 
 			finalProductImgArray.append('%s%d.jpeg'%(hn,imgNum));
 			imgNum += 1;
@@ -254,7 +254,7 @@ def writeJson(key):
 
 def initialization():
 	productDict = {
-	"ID":0,
+	"ID":175,
 	"name":"",
 	"img":"",
 	"category":"",
@@ -269,11 +269,11 @@ def initialization():
 def go(categoryDict):
 	for key in categoryDict:
 		initialization();
-		# if (key == 'Kitchen'):
-		url = categoryDict[key];
-		pageText=getPageText(url);
-		productThread = threading.Thread(target = getProductInfo, args = (key, pageText));
-		productThread.start();
+		if (key == 'Kitchen'):
+			url = categoryDict[key];
+			pageText=getPageText(url);
+			productThread = threading.Thread(target = getProductInfo, args = (key, pageText));
+			productThread.start();
 
 if __name__ == "__main__":
 	homeUrl= "https://2021life.com";
