@@ -1,4 +1,6 @@
 // miniprogram/pages/singleCategory/singleCategory.js
+import { getCorrectCategoryName } from "../../functions"
+
 Page({
 
   /**
@@ -13,8 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let productCategory = options.category.toLowerCase();
-    productCategory = productCategory.replace(" ", "_");
+    let productCategory = getCorrectCategoryName(options.category);
     this.setData({
       category: productCategory,
     })

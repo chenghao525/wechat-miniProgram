@@ -2,7 +2,8 @@
   "pages": [
     "pages/home/home",
     "pages/categories/categories",
-    "pages/singleCategory/singleCategory"
+    "pages/singleCategory/singleCategory",
+    "pages/productDetail/productDetail"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -33,7 +34,7 @@
     ]
   },
   "usingComponents": {
-      "van-toast": "../../miniprogram_npm/vant-weapp/toast/index"
+    "van-toast": "../../miniprogram_npm/vant-weapp/toast/index"
   },
   "sitemapLocation": "sitemap.json"
 }

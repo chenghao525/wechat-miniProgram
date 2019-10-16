@@ -1,4 +1,4 @@
-import {getCorrectImgUrl} from "../../functions"
+import { getCorrectImgUrl, getCorrectCategoryName} from "../../functions"
 import Toast from '../../miniprogram_npm/vant-weapp/toast/index'
 const App = getApp();
 
@@ -10,6 +10,14 @@ Page({
     itemList:[],
     imgURLs:[],
     counter: 1,
+  },
+  showDetail:function(e){
+    let productId = e.currentTarget.dataset.id;
+    let productCate = e.currentTarget.dataset.cate;
+    productCate = getCorrectCategoryName(productCate)
+    wx.navigateTo({
+      url: `../productDetail/productDetail?category=${productCate}&productId=${productId}`
+    })
   },
   uploadPic: function(){
     let that = this;
@@ -80,8 +88,6 @@ Page({
     const cloud = wx.cloud;
     let counter = this.data.counter;
 
-   
-
     cloud.callFunction({
       name: "getCollection",
       data: {
@@ -99,7 +105,7 @@ Page({
           })
         } else {
           wx.showToast({
-            title: '没有更多了！',
+            title: 'That\'s it!',
           })
         }
         productList = productList.concat(newProducts);

@@ -4,13 +4,13 @@
 <view>
   <van-search class="home-search" placeholder="Search"></van-search>
   <view class="swiper-container">
-  <swiper class="top-banner" autoplay="{{autoplay}}" indicator-dots="indicator_dots" >
-  <block wx:for="{{imgURLs}}">
-    <swiper-item>
-      <image src="{{item}}" class="banner-image"/>
-    </swiper-item>
-  </block>
-  </swiper>
+    <swiper class="top-banner" autoplay="{{autoplay}}" indicator-dots="indicator_dots" >
+      <block wx:for="{{imgURLs}}">
+        <swiper-item>
+          <image src="{{item}}" class="banner-image"/>
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
 </view>
 
@@ -18,7 +18,7 @@
 <view class="section goods-list">
 	<block wx:for="{{itemList}}" wx:key="index" wx:for-item="product">
 		<view class="goods-item">
-			<image class="goods-img {{product.sold_out?'sold-out':''}} {{product.on_sale?'on-sale':''}}" src="{{product.img}}" data-pid="{{product.id}}" bindtap="showDetail"/>
+			<image class="goods-img {{product.sold_out?'sold-out':''}} {{product.on_sale?'on-sale':''}}" src="{{product.img}}" data-cate="{{product.category}}" data-id="{{product.ID}}" bindtap="showDetail"/>
 			<text class="title">{{product.name}}</text>
 			<text class="price">${{product.price}}</text>
 		</view>

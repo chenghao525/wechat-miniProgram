@@ -7,3 +7,10 @@ module.exports.getCorrectImgUrl = function (productList){
   }
   return productList;
 }
+
+
+module.exports.getCorrectCategoryName = function (options){
+  let productCategory = options.toLowerCase();
+  productCategory = productCategory.replace(" ", "_");
+  return productCategory;
+}
