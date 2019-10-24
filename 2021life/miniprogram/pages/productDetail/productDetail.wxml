@@ -1,9 +1,8 @@
 <!--miniprogram/pages/productDetail/productDetail.wxml-->
-<text>miniprogram/pages/productDetail/productDetail.wxml</text>
 <view class="product-detail-container">
   <view class="swiper-container">
     <swiper class="product-swiper" indicator-dots="true">
-      <block wx-for="{{swiperImg}}">
+      <block wx:for="{{swiperImg}}" wx:key="index">
         <swiper-item>
           <image src="{{item}}" class="swiper-img"/>
         </swiper-item>
@@ -11,5 +10,14 @@
     </swiper>
   </view>
 
-<view class="product-info"></view>
+  <view class="product-info"> 
+    <van-cell-group class="cell-group-class">
+      <van-cell title="{{name}}" value="${{price}}" class="name-price-cell"/>
+      <van-cell title="单元格" value="内容" label="描述信息" border="true" />
+      <van-cell title="Product detail" value="+" label="this is a mo text\\n to test if changeline works" bindtap="showDetail">
+      </van-cell>
+    </van-cell-group>
+  </view>
+
+
 </view>

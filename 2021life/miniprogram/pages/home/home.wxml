@@ -5,7 +5,7 @@
   <van-search class="home-search" placeholder="Search"></van-search>
   <view class="swiper-container">
     <swiper class="top-banner" autoplay="{{autoplay}}" indicator-dots="indicator_dots" >
-      <block wx:for="{{imgURLs}}">
+      <block wx:for="{{imgURLs}}" wx:key="index">
         <swiper-item>
           <image src="{{item}}" class="banner-image"/>
         </swiper-item>

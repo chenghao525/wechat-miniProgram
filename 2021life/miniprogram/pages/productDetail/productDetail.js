@@ -15,6 +15,7 @@ Page({
     detailImgPaths:[],
     onSale:false,
     soldOut:false,
+    showDetailText:false
   },
 
   /**
@@ -25,15 +26,20 @@ Page({
     var correctDetailImgPaths=[];
     const cloud = wx.cloud;
 
-    // console.log(options.category,options.productId)
     cloud.callFunction({
       name:"getProductDetail",
       data: {collectionName:options.category,productId:options.productId},
       success:res=>{
-        console.log("1",res);
+        console.log(res);
         let data=res.result.data;
-        let correctSwiperPaths=getCorrectImgUrl()
-
+        let swiperImg=[]
+        let productDetailedText=""
+        data=getCorrectImgUrl(data);
+        if(data[0].detailImgs.length==0){
+          swiperImg.push(data[0].img);
+        }else{
+          swiperImg=data[0].detailImgs;
+        }
         that.setData({
           name: data[0].name,
           price: data[0].price,
@@ -42,15 +48,24 @@ Page({
           detailText: data[0].detailText.detailText,
           variantOptionTitle: data[0].detailText.variantOptionTitle,
           variantOptions: data[0].detailText.variantOptions,
-          swiperImg: data[0].img,
+          swiperImg: swiperImg,
           detailImgPaths: data[0].detailImgs,
         })
       },fail:err=>{
-        console.log("2",err);
+        console.log(err);
       }
     })
   },
 
+  //Show product detailed text
+  showDetail: function(){
+    let showDetailText=this.showDetailText;
+    console.log("show detail")
+    this.setData({
+      showDetailText : !showDetailText
+    })
+    
+  },
   /**
    * Lifecycle function--Called when page is initially rendered
    */
