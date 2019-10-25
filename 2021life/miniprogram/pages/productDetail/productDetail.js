@@ -40,12 +40,14 @@ Page({
         }else{
           swiperImg=data[0].detailImgs;
         }
+        productDetailedText = this.formatDetailText(data[0].detailText.detailText)
         that.setData({
           name: data[0].name,
           price: data[0].price,
           onSale: data[0].onSale,
           soldOut: data[0].soldOut,
-          detailText: data[0].detailText.detailText,
+          // detailText: data[0].detailText.detailText,
+          detailText: productDetailedText,
           variantOptionTitle: data[0].detailText.variantOptionTitle,
           variantOptions: data[0].detailText.variantOptions,
           swiperImg: swiperImg,
@@ -64,7 +66,23 @@ Page({
     this.setData({
       showDetailText : !showDetailText
     })
-    
+  },
+  //convert the detail text array into list of info 
+  formatDetailText(detailTextArray){
+    let detailText="";
+    if(detailTextArray[0]==="None"||detailTextArray[0][0]==="~"){
+      detailText="Enjoy this amazing product!"
+    }else{
+      for(let index in detailTextArray){
+        if(detailTextArray[index]!==""){
+          let line = detailTextArray[index];
+          line = line.trim();
+          detailText += "●"+" "+line+'\n';
+          console.log(detailText)
+       }
+      }
+    }
+    return detailText
   },
   /**
    * Lifecycle function--Called when page is initially rendered

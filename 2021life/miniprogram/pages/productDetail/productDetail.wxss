@@ -25,4 +25,18 @@
   font-weight: bold;
 }
 
+.product-detail-cell .van-cell__label{
+  flex:auto;
+  width:85vw;
+  /* padding-left:2em; 
+  text-indent:-2em; */
+}
 
+.detail-img-block{
+  padding: 0px 5px;
+}
+
+.detail-img{
+    width: 100%;
+    /* margin: 0px 5px;        */
+}

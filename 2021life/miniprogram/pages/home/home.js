@@ -8,7 +8,7 @@ Page({
     autoplay: true,
     indicator_dots: true,
     itemList:[],
-    imgURLs:[],
+    bannerList:[],
     counter: 1,
   },
   showDetail:function(e){
@@ -56,11 +56,9 @@ Page({
       data:{collectionName:"homeSwiper"},
       success: res => {
         console.log(res)
-        res.result.data.map(item => {
-          imagePaths.push(item.image);
-        })
+        let productList = getCorrectImgUrl(res.result.data);
         that.setData({
-          imgURLs: imagePaths,
+          bannerList: productList,
         })
       }, fail: err => {
         console.log(err)

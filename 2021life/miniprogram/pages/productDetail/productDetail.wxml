@@ -14,10 +14,18 @@
     <van-cell-group class="cell-group-class">
       <van-cell title="{{name}}" value="${{price}}" class="name-price-cell"/>
       <van-cell title="单元格" value="内容" label="描述信息" border="true" />
-      <van-cell title="Product detail" value="+" label="this is a mo text\\n to test if changeline works" bindtap="showDetail">
-      </van-cell>
+      <van-cell class="product-detail-cell" 
+                title="Product detail" 
+                value="+" 
+                label="{{detailText}}" 
+                style="white-space: pre-line;" />
     </van-cell-group>
+
+    <view>
+      <block class="detail-img-block" wx:for="{{detailImgPaths}}" wx:key="index">
+          <image src="{{item}}" class="detail-img" mode="widthFix"/>
+      </block>
+    </view>
+
   </view>
-
-
 </view>

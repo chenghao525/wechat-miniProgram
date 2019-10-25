@@ -11,6 +11,14 @@ Page({
     counter:1,
     category:"",
   },
+  showDetail: function (e) {
+    let productId = e.currentTarget.dataset.id;
+    let productCate = e.currentTarget.dataset.cate;
+    productCate = getCorrectCategoryName(productCate)
+    wx.navigateTo({
+      url: `../productDetail/productDetail?category=${productCate}&productId=${productId}`
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
