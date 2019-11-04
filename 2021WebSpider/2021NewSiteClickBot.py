@@ -1,10 +1,18 @@
 import requests
+import time
 import threading
 import urllib.request
+from traceback import print_exc
 from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 
-opener = urllib.request.build_opener()
+# opener = urllib.request.build_opener()
+# chrome_options = Options()
+# chrome_options.add_argument('--headless')
+# driver = webdriver.Chrome(chrome_options=chrome_options)
+# driver = webdriver.Chrome()
 
 
 def getPageText(url):
@@ -49,16 +57,25 @@ def getUsefulCategoryDict(categoryDict):
 	return newDict
 
 def simulateOpenUrl(url,category):
+	opener = urllib.request.build_opener()
 	try:
 		print("Opening:",category,"==>", url)
-		opener.open(url)
-	except urllib.error.HTTPError:
-		print('urllib.error.HTTPError')
-	except urllib.error.URLError:
-		print('urllib.error.URLError')
-
+		urllib.request.urlopen(url)
+		time.sleep(2)
+		# driver.get(url)
+		# time.sleep(2.0)
+	except Exception as e:
+		print ('type is:', e.__class__.__name__)
+		# print_exc()
+	# except urllib.error.HTTPError:
+	# 	print('urllib.error.HTTPError')
+	# 	time.sleep(60)
+	# except urllib.error.URLError:
+	# 	print('urllib.error.URLError')
+	# 	time.sleep(60)
 
 def browseSingleCategory(singleCategoryText,category):
+	# driver = webdriver.Chrome()
 	productLinkList=[]
 	soup = BeautifulSoup(singleCategoryText,'lxml');
 	productList = soup.findAll(class_ = 'woocommerce-LoopProduct-link woocommerce-loop-product__link');
@@ -68,18 +85,23 @@ def browseSingleCategory(singleCategoryText,category):
 	for url in productLinkList:
 		urlThreading=threading.Thread(target = simulateOpenUrl, args =  (url,category))
 		urlThreading.start()
+		# simulateOpenUrl(url,category)
+	# driver.close()
 
 
 def browse(newCategoryDict):
+	# driver = webdriver.Chrome()
 	for key in newCategoryDict:
 		# if(key=="KITCHEN"):
 		simulateOpenUrl(newCategoryDict[key],key)
+		# driver.close()
 		singleCategoryText=getPageText(newCategoryDict[key])
 		categoryThread=threading.Thread(target = browseSingleCategory, args =  (singleCategoryText,key))
 		categoryThread.start()
 
 
 if __name__ == "__main__":
+	# driver = webdriver.Chrome()
 	times=int(input("How many times you want me to browse 2021life.com?"))
 	homeUrl = "https://2021life.com";
 	homePageText = getPageText(homeUrl);
@@ -88,6 +110,7 @@ if __name__ == "__main__":
 	while(times>0):
 		print("Times left: ",times)
 		simulateOpenUrl(homeUrl,"Home")
+		# driver.close()
 		browse(newCategoryDict);
 		print("No error, process complete!")
 		times-=1
