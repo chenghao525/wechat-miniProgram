@@ -1,0 +1,12 @@
+<!--miniprogram/pages/personal/personal.wxml-->
+<text>miniprogram/pages/personal/personal.wxml</text>
+
+<view class="personal-container">
+
+
+  <view class="login-model">
+    <modal title="授权登录" confirm-text="授权" cancel-text="取消" hidden="{{loginModalHidden}}" bindconfirm="loginConfirm" bindcancel="loginCancel">
+    授权小程序获取你的登陆信息，头像，昵称等
+    </modal>
+  </view>
+</view>
