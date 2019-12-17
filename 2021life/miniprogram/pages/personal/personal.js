@@ -1,99 +1,67 @@
 // miniprogram/pages/personal/personal.js
+//ace2f5da83642629ad45d32e36e5e157 app_secret
+const app = getApp()
+
+// const APP_ID = 'wxe9219696ee7e21eb';//输入小程序appid  
+// const APP_SECRET = 'ace2f5da83642629ad45d32e36e5e157';//输入小程序app_secret  
+// var OPEN_ID = ''//储存获取到openid  
+// var SESSION_KEY = ''//储存获取到session_key
+// var CODE = ''  
+
 Page({
 
   /**
    * Page initial data
    */
   data: {
-    loginModalHidden:false,
-    userInfo:"",
-  },
-  //Confirm authentic wechat info
-  loginConfirm: function(){
-    var that = this;
-    wx.login({
-      success(res) {
-        console.log(res);
-        var code = res.code
-        wx.request({
-          url: 'https://www.sch1908.cn/index/users/code2seesion',
-          method: "post",
-          data: {
-            code
-          },
-          success: function (res) {
-            console.log(res.data.openid);
-            that.setData(res.data);
-          },fail: (err)=>{
-            console.log(err)
-          }
-        })
-      }
-    })
-    this.setData({
-      loginModalHidden:!this.data.loginModalHidden,
-    })
-  },
-  //Cancel login modal
-  loginCancel: function () {
-    this.setData({
-      loginModalHidden: !this.data.loginModalHidden,
-    })
-
+    avatarUrl: './user-unlogin.png',
+    logged:false,
+    userInfo: {},
   },
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    // 获取用户信息
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+          this.setData({
+            logged: true,
+          })
+          wx.getUserInfo({
+            success: res => {
+              this.setData({
+                avatarUrl: res.userInfo.avatarUrl,
+                userInfo: res.userInfo
+              })
+            }
+          })
+        }
+      }
+    })
   },
-
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
-
+  onGetUserInfo: function (e) {
+    if (!this.data.logged && e.detail.userInfo) {
+      this.setData({
+        logged: true,
+        avatarUrl: e.detail.userInfo.avatarUrl,
+        userInfo: e.detail.userInfo
+      })
+      this.getOpenId();
+    }
   },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage: function () {
-
+  getOpenId: function(){
+    wx.cloud.callFunction({
+      name: 'login',
+      data: {},
+      success: res => {
+        console.log('[云函数] [login] user openid: ', res.result.openid)
+        app.globalData.openid = res.result.openid;
+      },fail:err => {
+        console.log(err)
+      }
+    })
   }
 })

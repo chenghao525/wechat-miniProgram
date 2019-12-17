@@ -16,22 +16,22 @@ App({
     }
 
     this.globalData = {}
-    this.getOpenId();
+    // this.getOpenId();
   },
 
-  getOpenId(){
-    wx.cloud.callFunction({
-      name: 'login',
-      fail: err => {
-        console.log(err)
-      },
-      complete: res => {
-        if (res.errMsg.indexOf(':ok') !== -1) {
-          if (this.showConsole && typeof this.showConsole === 'function') {
-            this.showConsole(res);
-          }
-        }
-      }
-    })
-  }
+  // getOpenId(){
+  //   wx.cloud.callFunction({
+  //     name: 'login',
+  //     fail: err => {
+  //       console.log(err)
+  //     },
+  //     complete: res => {
+  //       if (res.errMsg.indexOf(':ok') !== -1) {
+  //         if (this.showConsole && typeof this.showConsole === 'function') {
+  //           this.showConsole(res);
+  //         }
+  //       }
+  //     }
+  //   })
+  // }
 })
